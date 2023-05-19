@@ -53,25 +53,26 @@ def article_detail(request, article_pk):
             return Response(serializer.data)
 
 
-@api_view(['GET'])
-def comment_list(request):
-    if request.method == 'GET':
-        # comments = Comment.objects.all()
-        comments = get_list_or_404(Comment)
-        serializer = CommentSerializer(comments, many=True)
+@api_view(['POST'])
+def like_article(request, article_pk):
+    article = get_object_or_404(Article, pk=article_pk)
+    user = request.user
+    if article.like_users.filter(pk=user.pk).exists():
+        article.like_users.remove(user)
+        serializer = ArticleSerializer(article)
+        return Response(serializer.data)
+    else:
+        article.like_users.add(user)
+        serializer = ArticleSerializer(article)
         return Response(serializer.data)
 
 
-@api_view(['GET', 'DELETE', 'PUT'])
-def comment_detail(request, comment_pk):
+@api_view(['DELETE', 'PUT'])
+def comment_update_or_delete(request, comment_pk):
     # comment = Comment.objects.get(pk=comment_pk)
     comment = get_object_or_404(Comment, pk=comment_pk)
 
-    if request.method == 'GET':
-        serializer = CommentSerializer(comment)
-        return Response(serializer.data)
-
-    elif request.method == 'DELETE':
+    if request.method == 'DELETE':
         comment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -80,8 +81,6 @@ def comment_detail(request, comment_pk):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-
-    
 
 
 @api_view(['POST'])

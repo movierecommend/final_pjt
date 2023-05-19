@@ -1,24 +1,39 @@
 <template>
   <div>
     <h1>LogIn Page</h1>
-    <form>
-      <label for="username">username : </label>
-      <input type="text" id="username"><br>
-
-      <label for="password"> password : </label>
-      <input type="password" id="password"><br>
-
-      <input type="submit" value="logIn">
+    <form @submit.prevent="handleLogin">
+      <label for="username">Username:</label>
+      <input v-model="credentials.username" type="text" id="username" required>
+      <br>
+      <label for="password">Password:</label>
+      <input v-model="credentials.password" type="password" id="password" required>
+      <br>
+      <button type="submit">로그인</button>
     </form>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'LoginView',
   data() {
+    return {
+      credentials: {
+        username: '',
+        password: '',
+      }
+    }
+  },
+  computed: {
+    ...mapGetters('accounts', ['isAuthError'])
   },
   methods: {
-  }
+    ...mapActions('accounts', ['login']),
+    handleLogin() {
+      this.login(this.credentials)
+    }
+  },
 }
 </script>
