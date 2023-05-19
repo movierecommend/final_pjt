@@ -30,11 +30,9 @@ INSTALLED_APPS = [
     # 3rd party apps
     'rest_framework',
     'rest_framework.authtoken',
+    'dj_rest_auth',
     'corsheaders',
     'django_seed',
-
-    # DRF auth 담당
-    'dj_rest_auth',
     'dj_rest_auth.registration',
 
     #signup을 위해 필요

@@ -29,7 +29,11 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ('articles', 'id', 'nickname', 'like_articles', 'like_movies',)
 
 # 유저 정보
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'nickname',)
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    def create(self, validated_data):
+        password = validated_data.pop('password', None)
+        instance = self.Meta.model(**validated_data)
+        if password is not None:
+            instance.set_password(password)
+        instance.save()
+        return instance
