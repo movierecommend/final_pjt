@@ -2,13 +2,16 @@
 from django.urls import path
 from . import views
 
-
+app_name = 'articles'
 urlpatterns = [
+    # articles
     path('', views.article_list),
-    path('articles/<int:article_pk>/', views.article_detail),
-    path('comments/', views.comment_list),
-    path('comments/<int:comment_pk>/', views.comment_detail),
-    path('articles/<int:article_pk>/comments/', views.comment_create),
+    path('<int:article_pk>/', views.article_detail),
+    path('<int:article_pk>/like/', views.like_article),
+
+    # comments
+    path('<int:article_pk>/comments/', views.comment_create),
+    path('<int:article_pk>/comments/<int:comment_pk>/', views.comment_update_or_delete),
     # # 필수 작성
     # path('schema/', SpectacularAPIView.as_view(), name='schema'),
     # # optional UI

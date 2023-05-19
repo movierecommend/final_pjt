@@ -19,13 +19,29 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Local apps
     'main',
     'accounts',
-    'boards',
+    'articles',
     'movies',
     'recommendations',
     'tests',
+    
+    # 3rd party apps
     'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders',
+    'django_seed',
+
+    # DRF auth 담당
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+
+    #signup을 위해 필요
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,8 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -118,3 +136,24 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'accounts.User'
+
+# CORS_ALLOWED_ORIGINS에 교차 출처 자원 공유를 허용한 Domain 등록
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
+    'http://127.0.0.1:8001',
+]
+
+# DRF 인증 관련 설정
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 우리 사이트는 인증을 토큰으로 할꺼임
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+
+        # 인증된 사용자만 모든일이 가능 / 비인증 사용자는 모두 401 Unauthorized
+        'rest_framework.permissions.IsAuthenticated'
+    ]
+}

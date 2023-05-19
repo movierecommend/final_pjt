@@ -2,22 +2,57 @@
   <div id="app">
     <div class="top">
       <div id="wrapMini">
-        <router-link :to="{ name: 'LoginView' }" id="btnLogin">Login</router-link> |
-        <router-link :to="{ name: 'SignupView' }" id="btnLogin">Signup</router-link> |
-        <router-link :to="{ name: 'MypageView' }" id="btnLogin">Mypage</router-link>
+        <router-link :to="{ name: 'login' }" id="btnLogin">Login</router-link> |
+        <router-link :to="{ name: 'signup' }" id="btnLogin">Signup</router-link> |
+        <router-link :to="{ name: 'mypage' }" id="btnLogin">Mypage</router-link>
       </div>
     </div>
     
     <nav>
       <router-link :to="{ name: 'HomeView' }">Home</router-link> |
-      <router-link :to="{ name: 'RecommendView' }">Recommendations</router-link> |
-      <router-link :to="{ name: 'FunView' }">Fun</router-link> |
-      <router-link :to="{ name: 'ArticleView' }">Community</router-link>
+      <router-link :to="{ name: 'recommend' }">Recommendations</router-link> |
+      <router-link :to="{ name: 'fun' }">Fun</router-link> |
+      <router-link :to="{ name: 'articles' }">Community</router-link>
     </nav>
     <router-view/>
     </div>
   
 </template>
+
+
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  name: 'App',
+  components: {
+  },
+  data () {
+    return {
+      userPk: ''
+    }
+  },
+  computed: {
+    ...mapGetters([ 'currentUser' ])
+  },
+  methods: {
+    fetchCurrentUser () {
+      this.$store.dispatch('fetchCurrentUser')
+      this.userPk = this.currentUser.id
+    },
+    fetchBoxoffice () {
+      this.$store.dispatch('fetchBoxoffice')
+    },
+    fetchActors () {
+      this.$store.dispatch('fetchActors')
+    },
+  },
+  created () {
+    this.fetchBoxoffice()
+    this.fetchActors()
+    this.fetchCurrentUser()
+  },
+}
+</script>
 
 <style>
 #app {
