@@ -146,7 +146,7 @@ AUTH_USER_MODEL = 'accounts.User'
 # CORS_ALLOWED_ORIGINS에 교차 출처 자원 공유를 허용한 Domain 등록
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
-    'http://127.0.0.1:8001',
+    'http://127.0.0.1:8000',
 ]
 
 # DRF 인증 관련 설정

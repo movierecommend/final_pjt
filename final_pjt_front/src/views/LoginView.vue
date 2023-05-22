@@ -21,21 +21,19 @@ export default {
   data() {
     return {
       credentials: {
-        username: '',
-        password: '',
+        username: null,
+        password: null,
       }
     }
   },
   computed: {
-    // ...mapGetters('accounts/', ['isAuthError'])
-    ...mapGetters({
-      isAuthError: 'accounts/isAuthError'})
-  },
-  methods: {
-    ...mapActions(['accounts/login'])
+    ...mapGetters('accounts/', ['isAuthError'])
+    },
+    methods: {
+    ...mapActions('accounts/', ['login'])
   },
   mounted(){
-    this['accounts/login']()
+    // this['accounts/login']()
   }
 }
 </script>

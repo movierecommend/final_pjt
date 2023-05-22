@@ -3,6 +3,7 @@ import api from './api'
 const END_POINT = "accounts"
 
 export default {
+  namespaced: true,
   login(data) {
     return api({
       method: "post",

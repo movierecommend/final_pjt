@@ -19,9 +19,9 @@ export default {
   },
 
   mutations: {
-    SAVE_TOKEN: (state, token) => {
+    SET_TOKEN: (state, token) => {
       state.token = token
-      localStorage.setItem("token", token)
+      // localStorage.setItem("token", token)
     },
     SET_CURRENT_USER: (state, user) => (state.currentUser = user),
     SET_PROFILE: (state, profile) => (state.profile = profile),
@@ -30,6 +30,7 @@ export default {
   
   actions: {
     login({ commit, dispatch }, credentials) {
+      console.log(account)
       account
         .login(credentials)
         .then((res) => {
@@ -43,7 +44,7 @@ export default {
           router.push({ name: "HomeView" })
         })
         .catch((err) => {
-          commit("accounts/SET_AUTH_ERROR", err.response.data)
+          commit("SET_AUTH_ERROR", err.response.data)
         });        
     },
     
@@ -59,7 +60,7 @@ export default {
           router.push({ name: "HomeView" })
         })
         .catch((err) => {
-          commit("accounts/SET_AUTH_ERROR", err.response.data)
+          commit("SET_AUTH_ERROR", err.response.data)
         })
     },
 
@@ -79,7 +80,7 @@ export default {
         // account.currentUser().then((res) => {
         //   console.log(res.data)})
         account.currentUser().then((res) => {
-          commit("accounts/SET_CURRENT_USER", res.data)
+          commit("SET_CURRENT_USER", res.data)
         });
       }
     },

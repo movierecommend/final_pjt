@@ -3,7 +3,6 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
 import datetime
 
-# Create your models here.
 class Actor(models.Model):
     name = models.CharField(max_length=50, null=False)
     profile_path = models.TextField(null=True)
