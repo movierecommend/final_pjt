@@ -1,4 +1,5 @@
-{
+
+dict = {
     "대부": [
         "Drama",
         "Crime",

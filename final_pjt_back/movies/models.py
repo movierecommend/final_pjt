@@ -19,13 +19,13 @@ class Genre(models.Model):
 
 class Movie(models.Model):
     title = models.CharField(max_length=20)
-    keywords = models.ManyToManyField(Genre, related_name='movies')
+    genres = models.ManyToManyField(Genre, related_name='movies')
     actors = models.ManyToManyField(Actor, related_name='movies') 
-    overview = models.TextField()
-    poster_path = models.TextField(null=True)
-    release_date = models.DateField(null=True, default=datetime.date.today)
-    runtime = models.IntegerField(null=True)
-    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_movies')
+    # overview = models.TextField()
+    # poster_path = models.TextField(null=True)
+    # release_date = models.DateField(null=True, default=datetime.date.today)
+    # runtime = models.IntegerField(null=True)
+    # like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_movies')
     
     def __str__(self):
         return self.title
