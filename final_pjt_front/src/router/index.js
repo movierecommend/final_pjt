@@ -14,7 +14,6 @@ import SignupView from '@/views/SignupView'
 import LoginView from '@/views/LoginView'
 import LogoutView from '@/views/LogoutView'
 import NotFound404 from '@/views/NotFound404'
-import ProfileView from '@/views/ProfileView'
 
 Vue.use(VueRouter)
 
@@ -64,11 +63,6 @@ const routes = [
 
   // Accounts, 404
   {
-    path: '/mypage',
-    name: 'mypage',
-    component: MypageView
-  },
-  {
     path: '/signup',
     name: 'signup',
     component: SignupView
@@ -84,14 +78,14 @@ const routes = [
     component: LogoutView
   },
   {
+    path: '/mypage/:username',
+    name: 'mypage',
+    component: MypageView,
+  },
+  {
     path: '/404',
     name: 'NotFound404',
     component: NotFound404
-  },
-  {
-    path: '/profile/:username',
-    name: 'profile',
-    component: ProfileView,
   },
   {
     path: '*',
@@ -110,23 +104,23 @@ router.beforeEach((to, from, next) => {
   // 이전 페이지에서 발생한 에러메시지 삭제
   store.commit('accounts/SET_AUTH_ERROR', null)
   
-  const isAuthenticated = store.getters['accounts/isLoggedIn']
+  const isLoggedIn = store.getters['accounts/isLoggedIn']
 
   // 로그인이 필요한 페이지인지 확인
-  const requiresAuth = ['login', 'signup', 'HomeView',]
+  const freeAuth = ['login', 'signup', 'HomeView',]
 
   // 현재 이동하고자 하는 페이지가 Authentication이 필요한가?
-  const isAuthRequired = !requiresAuth.includes(to.name)
+  const isAuthRequired = !freeAuth.includes(to.name)
 
   // Auth가 필요한데, 로그인 되어있지 않다면?
-  if (isAuthRequired && !isAuthenticated) {
+  if (isAuthRequired && !isLoggedIn) {
     alert('로그인하셔야 서비스를 이용하실 수 있습니다.')
     next({ name: 'login'})
   } else {
     next()
   }
 
-  if (!isAuthRequired && isAuthenticated) {
+  if (!isAuthRequired && isLoggedIn) {
     next({ name: 'HomeView'})
   }
 })

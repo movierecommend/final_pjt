@@ -2,9 +2,9 @@
   <div id="app">
     <div class="top">
       <div id="wrapMini">
-        <router-link :to="{ name: 'login' }" id="btnLogin">Login</router-link> |
+        <router-link to='/login' id="btnLogin">Login</router-link> |
         <router-link :to="{ name: 'signup' }" id="btnLogin">Signup</router-link> |
-        <router-link :to="{ name: 'mypage' }" id="btnLogin">Mypage</router-link>
+        <router-link v-if="isLoggedIn" :to="{ name: 'mypage', params: {'username':currentUser} }" id="btnLogin">Mypage</router-link>
       </div>
     </div>
     
@@ -32,7 +32,11 @@ export default {
   },
   computed: {
     ...mapGetters(
-      {currentUser: 'accounts/currentUser'})
+      {currentUser: 'accounts/currentUser',
+      isLoggedIn: 'accounts/isLoggedIn'},
+      )
+
+
   },
   methods: {
     fetchCurrentUser () {
@@ -42,13 +46,13 @@ export default {
     fetchBoxoffice () {
       this.$store.dispatch('home/fetchBoxoffice')
     },
-    fetchActors () {
-      this.$store.dispatch('movies/fetchActors')
-    },
+    // fetchActors () {
+    //   this.$store.dispatch('movies/fetchActors')
+    // },
   },
   created () {
     this.fetchBoxoffice()
-    this.fetchActors()
+    // this.fetchActors()
     this.fetchCurrentUser()
   },
 }

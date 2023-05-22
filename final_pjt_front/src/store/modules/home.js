@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // boxoffice API
 const KOR_URL = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json'
-const KOR_KEY = 'be06ce196e4f8f2cdc15f51e902a4b12	'
+const KOR_KEY = 'be06ce196e4f8f2cdc15f51e902a4b12'
 var date = new Date();
 var year = date.getFullYear();
 var month = date.getMonth()+1
@@ -42,7 +42,7 @@ export default {
       })
       .then(res => {
         commit('FETCH_BOXOFFICE', res.data.boxOfficeResult.dailyBoxOfficeList)
-        console.log(res.data.boxOfficeResult)
+        // console.log(res.data.boxOfficeResult)
       })
       .catch(err => console.log(err))
     },

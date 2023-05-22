@@ -22,26 +22,26 @@ export default {
   data() {
     return {
       username: null,
-      nickname: null,
+      // nickname: null,
       password1: null,
       password2: null,
-      email: null,
+      // email: null,
     }
   },
   methods: {
     signup() {
       const username = this.username
-      const nickname = this.nickname
+      // const nickname = this.nickname
       const password1 = this.password1
       const password2 = this.password2
-      const email = this.email
+      // const email = this.email
 
       const payload = {
-        username, nickname, password1, password2, email
+        username, password1, password2
       }
 
       // store/modules/accounts.js의 signup 실행
-      this.$store.dispatch('signup', payload)
+      this.$store.dispatch('accounts/signup', payload)
 
     }
   }
