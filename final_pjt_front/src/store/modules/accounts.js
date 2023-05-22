@@ -2,6 +2,7 @@ import router from "@/router"
 import account from "@/api/account"
 
 export default {
+  namespaced: true,
   state: {
     token: localStorage.getItem("token") || "",
     currentUser: {},
@@ -18,14 +19,14 @@ export default {
   },
 
   mutations: {
-    SET_TOKEN: (state, token) => {
-      state.token = token;
-      localStorage.setItem("token", token);
+    SAVE_TOKEN: (state, token) => {
+      state.token = token
+      localStorage.setItem("token", token)
     },
     SET_CURRENT_USER: (state, user) => (state.currentUser = user),
     SET_PROFILE: (state, profile) => (state.profile = profile),
     SET_AUTH_ERROR: (state, error) => (state.authError = error),
-  },
+  },  
   
   actions: {
     login({ commit, dispatch }, credentials) {
@@ -35,15 +36,17 @@ export default {
           const token = res.data.key
           // Token setting
           commit("SET_TOKEN", token)
+          localStorage.setItem("token", token)
           // currentUser setting
           dispatch("fetchCurrentUser")
           // page 이동
           router.push({ name: "HomeView" })
         })
         .catch((err) => {
-          commit("SET_AUTH_ERROR", err.response.data)
-        });
+          commit("accounts/SET_AUTH_ERROR", err.response.data)
+        });        
     },
+    
 
     signup({ commit, dispatch }, credentials) {
       account
@@ -51,11 +54,12 @@ export default {
         .then((res) => {
           const token = res.data.key
           commit("SET_TOKEN", token)
+          localStorage.setItem("token", token)
           dispatch("fetchCurrentUser")
           router.push({ name: "HomeView" })
         })
         .catch((err) => {
-          commit("SET_AUTH_ERROR", err.response.data)
+          commit("accounts/SET_AUTH_ERROR", err.response.data)
         })
     },
 
@@ -64,16 +68,18 @@ export default {
         .logout()
         .then(() => {
           commit("SET_TOKEN", "")
+          localStorage.setItem("token", "")
           alert("성공적으로 logout 되었습니다.")
           router.push({ name: "login" })
         })
         .catch((err) => console.error(err));
     },
-
     fetchCurrentUser({ commit, getters }) {
       if (getters.isLoggedIn) {
+        // account.currentUser().then((res) => {
+        //   console.log(res.data)})
         account.currentUser().then((res) => {
-          commit("SET_CURRENT_USER", res.data)
+          commit("accounts/SET_CURRENT_USER", res.data)
         });
       }
     },

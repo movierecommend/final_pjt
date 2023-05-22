@@ -18,9 +18,9 @@ class Genre(models.Model):
         return self.name
 
 class Movie(models.Model):
-    genres = models.ManyToManyField(Genre, related_name='movies')
-    actors = models.ManyToManyField(Actor, related_name='movies')
-    title = models.CharField(max_length=300)
+    title = models.CharField(max_length=20)
+    keywords = models.ManyToManyField(Genre, related_name='movies')
+    actors = models.ManyToManyField(Actor, related_name='movies') 
     overview = models.TextField()
     poster_path = models.TextField(null=True)
     release_date = models.DateField(null=True, default=datetime.date.today)

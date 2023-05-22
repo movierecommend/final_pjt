@@ -16,7 +16,6 @@ import LogoutView from '@/views/LogoutView'
 import NotFound404 from '@/views/NotFound404'
 import ProfileView from '@/views/ProfileView'
 
-
 Vue.use(VueRouter)
 
 const routes = [

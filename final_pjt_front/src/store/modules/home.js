@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // boxoffice API
 const KOR_URL = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json'
-const KOR_KEY = '2ddf8b660a10e60581efb88f6f099afe'
+const KOR_KEY = 'be06ce196e4f8f2cdc15f51e902a4b12	'
 var date = new Date();
 var year = date.getFullYear();
 var month = date.getMonth()+1
@@ -18,6 +18,7 @@ var todaystr = today.toString()
 
 
 export default {
+  namespaced: true,
   state: {
     boxoffice: [],
   },

@@ -17,7 +17,7 @@ export default {
   name: 'DetailView',
   data() {
     return {
-      article: null,
+      article: null
     }
   },
   created() {
@@ -27,7 +27,7 @@ export default {
     getArticleDetail() {
       axios({
         method: 'get',
-        url: `${API_URL}/articles/${this.$route.params.id}/`,
+        url: `${API_URL}/api/v1/articles/${ this.$route.params.id }/`,
       })
       .then((res) => {
         console.log(res)

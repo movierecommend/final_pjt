@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>LogIn Page</h1>
-    <form @submit.prevent="handleLogin">
+    <form @submit.prevent="login(credentials)">
       <label for="username">Username:</label>
       <input v-model="credentials.username" type="text" id="username" required>
       <br>
@@ -27,13 +27,15 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('accounts', ['isAuthError'])
+    // ...mapGetters('accounts/', ['isAuthError'])
+    ...mapGetters({
+      isAuthError: 'accounts/isAuthError'})
   },
   methods: {
-    ...mapActions('accounts', ['login']),
-    handleLogin() {
-      this.login(this.credentials)
-    }
+    ...mapActions(['accounts/login'])
   },
+  mounted(){
+    this['accounts/login']()
+  }
 }
 </script>

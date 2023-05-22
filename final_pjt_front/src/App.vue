@@ -18,38 +18,32 @@
   </div>
   
 </template>
-<script>
-export default {
-  name: 'App',
-
-}
-</script>
-
 
 <script>
 import { mapGetters } from 'vuex'
+
 export default {
   name: 'App',
-  components: {
-  },
+  components: {},
   data () {
     return {
       userPk: ''
     }
   },
   computed: {
-    ...mapGetters([ 'currentUser' ])
+    ...mapGetters(
+      {currentUser: 'accounts/currentUser'})
   },
   methods: {
     fetchCurrentUser () {
-      this.$store.dispatch('fetchCurrentUser')
+      this.$store.dispatch('accounts/fetchCurrentUser')
       this.userPk = this.currentUser.id
     },
     fetchBoxoffice () {
-      this.$store.dispatch('fetchBoxoffice')
+      this.$store.dispatch('home/fetchBoxoffice')
     },
     fetchActors () {
-      this.$store.dispatch('fetchActors')
+      this.$store.dispatch('movies/fetchActors')
     },
   },
   created () {

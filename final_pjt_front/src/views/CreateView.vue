@@ -29,22 +29,22 @@ export default {
     createArticle() {
       const title = this.title
       const content = this.content
-      
+
       if (!title) {
-        alert('제목을 입력해주세요')
+        alert('제목 입력해주세요')
         return
-      } else if (!content) {
-        alert('내용을 입력해주세요')
+      } else if (!content){
+        alert('내용 입력해주세요')
         return
       }
-
       axios({
         method: 'post',
         url: `${API_URL}/api/v1/articles/`,
-        data: {title, content},
+        data: { title, content},
       })
-      .then((res) => {
-        console.log(res)
+      .then(() => {
+        // console.log(res)
+        this.$router.push({name: 'ArticleView'})
       })
       .catch((err) => {
         console.log(err)

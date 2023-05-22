@@ -3,9 +3,11 @@ import article from "@/api/article"
 import comment from "@/api/comment"
 
 export default {
+  namespaced: true,
   state: {
     articles: [],
     article: { title: "", content: "" },
+    token: null,
   },
 
   getters: {
