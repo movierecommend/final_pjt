@@ -8,7 +8,7 @@ from rest_framework import status
 
 from .models import Actor, Movie, Genre, Rating
 from accounts.models import User
-
+from django.http import JsonResponse
 
 # Create your views here.
 @api_view(['GET'])
@@ -117,3 +117,6 @@ def user_like_movie(request, user_pk):
     final_serializer = UserChoiceSimilarMovieSerializer(final_movie, many=True)
 
     return Response(final_serializer.data)
+
+
+
