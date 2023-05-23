@@ -2,56 +2,28 @@
 
 <template>
   <div>
-    <h1>게시글 작성</h1>
-    <form @submit.prevent="createArticle">
-      <label for="title">제목 : </label>
-      <input type="text" id="title" v-model.trim="title"><br>
-      <label for="content">내용 : </label>
-      <textarea id="content" cols="30" rows="10" v-model="content"></textarea><br>
-      <input type="submit" id="submit">
-    </form>
+    <h1>새 글</h1>
+      <article-form class="mt-5" :article="article" action="create"></article-form>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-const API_URL = 'http://127.0.0.1:8000'
+import ArticleForm from '@/components/Article/ArticleForm.vue'
 
 export default {
   name: 'CreateView',
+  components: { ArticleForm },
   data() {
     return {
-      title: null,
-      content: null,
-    }
-  },
-  methods: {
-    createArticle() {
-      const title = this.title
-      const content = this.content
-
-      if (!title) {
-        alert('제목 입력해주세요')
-        return
-      } else if (!content){
-        alert('내용 입력해주세요')
-        return
+      article: {
+        pk: null,
+        title: '',
+        content: ''
       }
-      axios({
-        method: 'post',
-        url: `${API_URL}/api/v1/articles/`,
-        data: { title, content},
-      })
-      .then(() => {
-        // console.log(res)
-        this.$router.push({name: 'ArticleView'})
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    }
-  }
+  }},
+
 }
+
 </script>
 
 <style>

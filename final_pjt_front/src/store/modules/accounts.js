@@ -30,7 +30,7 @@ export default {
   
   actions: {
     login({ commit, dispatch }, credentials) {
-      console.log(account)
+      // console.log(account)
       account
         .login(credentials)
         .then((res) => {

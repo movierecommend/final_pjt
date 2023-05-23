@@ -7,6 +7,7 @@ from rest_framework.decorators import api_view
 # permission Decorators
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
+from django.db.models import Count
 
 from rest_framework import status
 from django.shortcuts import get_object_or_404, get_list_or_404
@@ -16,24 +17,31 @@ from .models import Article, Comment
 
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
-def article_list(request):
-    if request.method == 'GET':
+
+def article_list_or_create(request):
+    def article_list(): 
         # articles = Article.objects.all()
-        articles = get_list_or_404(Article)
+        # articles = get_list_or_404(Article)
+        articles = Article.objects.annotate(
+            comment_count=Count('comments', distinct=True),
+            like_count=Count('like_users', distinct=True)
+        ).order_by('-pk')
         serializer = ArticleListSerializer(articles, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST':
+    def create_article():
         serializer = ArticleSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            # serializer.save(user=request.user)
+            serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+    if request.method == 'GET':
+        return article_list()
+    elif request.method == 'POST':
+        return create_article() # 왜 이런 방식으로 하는지는 모르겠으나, 서버 에러를 피하기 위한 방법인 것으로 추정됨
 
 @api_view(['GET', 'DELETE', 'PUT'])
-def article_detail(request, article_pk):
+def article_detail_or_update_or_delete(request, article_pk):
     # article = Article.objects.get(pk=article_pk)
     article = get_object_or_404(Article, pk=article_pk)
 

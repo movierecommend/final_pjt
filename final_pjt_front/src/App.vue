@@ -35,8 +35,6 @@ export default {
       {currentUser: 'accounts/currentUser',
       isLoggedIn: 'accounts/isLoggedIn'},
       )
-
-
   },
   methods: {
     fetchCurrentUser () {

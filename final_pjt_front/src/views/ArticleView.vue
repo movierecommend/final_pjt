@@ -1,20 +1,26 @@
 <template>
   <div>
     <h1>Article Page</h1>
-    <router-link :to="{ name: 'create' }">[CREATE]</router-link>
-    <ArticleList />
+    <router-link :to="{ name: 'create' }" v-if="isLoggedIn">[CREATE]</router-link>
+    <ArticleList/>
     <hr>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ArticleList from '@/components/Article/ArticleList.vue'
 
 export default {
   name: 'ArticleView',
   components: {
     ArticleList,
-  }
+  },
+  computed: {
+    ...mapGetters(
+      { isLoggedIn: 'accounts/isLoggedIn'},
+      )
+  },
 }
 </script>
 
