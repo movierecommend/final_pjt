@@ -629,16 +629,23 @@ movie_genre = [
 genre_list = []
 for mg in movie_genre:
     genre_list_lst = mg['fields']['genres']
+    # 장르 소문자로 바꿔서 리스트에 추가
     for genre in genre_list_lst:
-        if genre.lower() not in genre_list:
-            genre_list.append(genre.lower())
-# print(genre_list)
+        genre_list.append(genre.lower())
+
+genre_list_real = []
+# 장르 4번 이상 언급된 것 남기기
+for genre in genre_list:
+    if genre_list.count(genre) > 3 and genre not in genre_list_real:
+        genre_list_real.append(genre)
+    
+# print(genre_list_real)
 
 genre_dict = []
-for i in range(len(genre_list)):
+for i in range(len(genre_list_real)):
     genre_dict.append({
-        "models": "movies.genre",
+        "model": "movies.genre",
         "pk": i+1,
-        "name": genre_list[i]
+        "name": genre_list_real[i]
     })
 print(genre_dict)

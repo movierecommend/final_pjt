@@ -4,7 +4,7 @@
         "pk": 1, 
         "fields": {
             "title": "대부", 
-            "genres": ["drama", "crime", "italy", "loss oe loved one", "love at first sight", "based on novel or book", "europe", "symbolism", "patriarch", "organized crime", "mafia", "lawyer", "religion", "revenge motive", "crime family", "sicilian mafia", "religious hypocrisy", "gun violence", "rise to power", "dead horse", "gang violence", "1940s", "1950s", "mafia war", "part of trilogy"]
+            "genres": [1, 2, 3, 4, 5, 6, 35]
         }
     }, 
     {
@@ -12,7 +12,7 @@
         "pk": 2, 
         "fields": {
             "title": "쇼생크 탈출", 
-            "genres": ["drama", "crime", "prison", "corruption", "police brutality", "based on novel or book", "prison cell", "delinquent", "parole board", "prison escape", "wrongful imprisonment", "framed for murder", "1940s", "voiceover"]
+            "genres": [1, 2, 7, 5, 35]
         }
     }, 
     {
@@ -20,7 +20,7 @@
         "pk": 3, 
         "fields": {
             "title": "대부 2", 
-            "genres": ["drama", "crime", "italy", "italian american", "cuba", "symbolism", "gangster", "melancholy", "praise", "revenge", "organized crime", "mafia", "lawyer", "suburb", "corrupt politician"]
+            "genres": [1, 2, 3, 8, 6]
         }
     }, 
     {
@@ -28,7 +28,7 @@
         "pk": 4, 
         "fields": {
             "title": "쉰들러 리스트", 
-            "genres": ["drama", "history", "war", "based on novel or book", "factory", "concentration camp", "hero", "holocaust (shoah)", "ss (nazi schutzstaffel)", "world war ii", "ghetto", "jew persecution", "kraków", "poland", "auschwitz-birkenau concentration camp", "industrialist", "nazi", "defense industry", "biography", "based on true story", "historical fiction", "train", "poland", "weapons manufacturer"]
+            "genres": [1, 9, 10, 5, 11, 13, 12, 14, 15]
         }
     }, 
     {
@@ -36,7 +36,7 @@
         "pk": 5, 
         "fields": {
             "title": "센과 치히로의 행방불명", 
-            "genres": ["animation", "family", "fantasy", "witch", "parent child relationship", "magic", "darkness", "bath house", "spirit", "parallel world", "amusement park", "youkai", "japanese mythology", "anime"]
+            "genres": [16, 17, 18, 19, 20, 21]
         }
     }, 
     {
@@ -44,7 +44,7 @@
         "pk": 6, 
         "fields": {
             "title": "12명의 성난 사람들", 
-            "genres": ["drama", "judge", "jurors", "sultriness", "death penalty", "father murder", "puerto rico", "anonymity", "court case", "heat", "class", "innocence", "court", "based on play or musical", "black and white", "courtroom", "courtroom drama", "one location"]
+            "genres": [1, 22]
         }
     }, 
     {
@@ -52,7 +52,7 @@
         "pk": 7, 
         "fields": {
             "title": "너의 이름은", 
-            "genres": ["romance", "animation", "drama", "time travel", "race against time", "comet", "natural disaster", "supernatural", "afterlife", "romance", "school", "u.s. congress", "body-swap", "nonlinear timeline", "star crossed lovers", "anime", "dreams"]
+            "genres": [23, 16, 1, 60, 23, 21]
         }
     }, 
     {
@@ -60,7 +60,7 @@
         "pk": 8, 
         "fields": {
             "title": "기생충", 
-            "genres": ["comedy", "thriller", "drama", "birthday party", "private lessons", "basement", "dark comedy", "con artist", "working class", "psychological thriller", "class differences", "housekeeper", "tutor", "family", "crime family", "unemployed", "wealthy family", "south korea", "seoul", "south korea"]
+            "genres": [24, 25, 1, 17, 26]
         }
     }, 
     {
@@ -68,7 +68,7 @@
         "pk": 9, 
         "fields": {
             "title": "다크 나이트", 
-            "genres": ["drama", "action", "crime", "thriller", "crime fighter", "secret identity", "anti hero", "scarecrow", "sadism", "chaos", "vigilante", "joker", "superhero", "based on comic", "tragic hero", "organized crime", "anti villain", "criminal mastermind", "district attorney", "super power", "super villain", "neo-noir"]
+            "genres": [1, 27, 2, 25, 28, 29, 6, 30]
         }
     }, 
     {
@@ -76,7 +76,7 @@
         "pk": 10, 
         "fields": {
             "title": "그린 마일", 
-            "genres": ["fantasy", "drama", "crime", "southern usa", "mentally disabled", "based on novel or book", "death row", "jail guard", "great depression", "supernatural", "psychopath", "prison guard", "jail", "electric chair", "torture", "magic realism", "healing", "1930s", "abuse of power"]
+            "genres": [18, 1, 2, 5, 60, 35]
         }
     }, 
     {
@@ -84,7 +84,7 @@
         "pk": 11, 
         "fields": {
             "title": "펄프 픽션", 
-            "genres": ["thriller", "crime", "drug dealer", "boxer", "massage", "stolen money", "crime boss", "dance competition", "briefcase", "redemption", "heirloom", "los angeles", "california", "theft", "nonlinear timeline", "multiple storylines", "neo-noir"]
+            "genres": [25, 2, 31, 32, 30]
         }
     }, 
     {
@@ -92,13 +92,14 @@
          "pk": 12, 
          "fields": {
             "title": "석양의 무법자", 
-            "genres": ["western", "bounty hunter", "refugee", "gold", "anti hero", "gallows", "hitman", "army", "outlaw", "shootout", "moral ambiguity", "spaghetti western"]}}, 
+            "genres": [33]}
+    }, 
     {
         "model": "movies.movie",
          "pk": 13, 
          "fields": {
             "title": "포레스트 검프", 
-            "genres": ["comedy", "drama", "romance", "vietnam veteran", "hippie", "china", "washington dc", "usa", "single parent", "mentally disabled", "based on novel or book", "waitress", "usa president", "optimism", "parent child relationship", "1970s", "autism", "drug addiction", "alabama", "vietnam war", "john f. kennedy", "black panther party", "ping pong", "bus stop", "friendship", "stripper", "bullying", "moon landing", "ronald reagan", "richard nixon", "cancer", "singer", "family relationships", "death of lover", "death", "illness", "leg brace", "physical abuse", "dying mother", "ill mother", "death of mother", "historical event", "military", "disability", "shrimping", "anti war protest", "low iq", "false history", "assassination attempt", "vietnam flashback", "intellectual disability", "1960s", "mother son relationship", "monument valley", "child sexual abuse", "dying in arms", "ptsd", "elvis presley", "single mom", "disabled veteran", "war rally", "lyndon b. johnson", "dick cavett", "single dad", "ping pong diplomacy", "college football", "slow-witted", "bob hope", "neil armstrong", "gerald ford", "robert f. kennedy"]
+            "genres": [24, 1, 23, 5, 19, 34, 17, 35, 36]
         }
     }, 
     {
@@ -106,7 +107,7 @@
         "pk": 14, 
         "fields": {
             "title": "반지의 제왕:두 개의 탑", 
-        "genres": ["adventure", "fantasy", "action", "elves", "dwarf", "orcs", "based on novel or book", "explosive", "cave", "funeral", "siege", "fort", "army", "addiction", "mission", "attack", "dragon", "guide", "death", "split personality", "wizard", "ring", "live action and animation", "sword and sorcery"]
+        "genres": [37, 18, 27, 5, 33]
         }
     }, 
     {
@@ -114,7 +115,7 @@
         "pk": 15, 
         "fields": {
             "title": "좋은 친구들", 
-            "genres": ["drama", "crime", "new york city", "prison", "based on novel or book", "florida", "1970s", "mass murder", "irish-american", "drug trafficking", "gangster", "biography", "based on true story", "murder", "organized crime", "gore", "mafia", "brooklyn", "new york city", "crime epic", "tampa", "florida"]
+            "genres": [1, 2, 38, 5, 14, 15, 39, 6, 40, 38]
         }
     }, 
     {
@@ -122,7 +123,7 @@
         "pk": 16, 
         "fields": {
             "title": "7인의 사무라이", 
-            "genres": ["action", "drama", "japan", "martial arts", "samurai", "sword", "peasant", "looting", "rice", "fencing", "village", "epic", "moral ambiguity", "battle", "bandit", "practice", "jidaigeki", "16th century"]
+            "genres": [27, 1, 41, 35]
         }
     }, 
     {
@@ -130,7 +131,7 @@
         "pk": 17, 
         "fields": {
             "title": "시네마 천국", 
-            "genres": ["drama", "romance", "sicily", "italy", "movie business", "parent child relationship", "kiss", "flashback", "coming of age", "magic realism", "haunted by the past", "censorship", "nuovo cinema paradiso"]
+            "genres": [1, 23, 3, 19, 42, 35]
         }
     }, 
     {
@@ -138,7 +139,7 @@
         "pk": 18, 
         "fields": {
             "title": "인생은 아름다워", 
-            "genres": ["comedy", "drama", "italy", "riddle", "loss of loved one", "bookshop", "self sacrifice", "mass murder", "concentration camp", "fascism", "world war ii", "love of ones life", "deportation", "jew persecution", "nazi", "national socialism", "charade", "riding a bicycle", "story teller", "concentration camp prisoner", "dying and death"]
+            "genres": [24, 1, 3, 4, 43, 12, 13]
         }
     }, 
     {
@@ -146,483 +147,492 @@
         "pk": 19,   
         "fields": {
             "title": "싸이코", 
-            "genres": ["horror", "drama", "thriller", "hotel", "clerk", "arizona", "shower", "motel", "taxidermy", "money", "secretary", "black and white", "corpse", "murderer", "theft", "mental illness", "private detective", "missing person", "proto-slasher"]}}, 
+            "genres": [44, 1, 25, 22, 45]
+        }
+    }, 
     {
         "model": "movies.movie",
         "pk": 20,   
         "fields": {
             "title": "원스 어폰 어 타임 인 아메리카", 
-            "genres": ["drama", "crime", "new york city", "life and death", "corruption", "street gang", "rape", "sadistic", "lovesickness", "sexual abuse", "regret", "prohibition era", "money laundering", "opium", "gangster", "mafia boss", "murder", "memory", "torture", "brooklyn bridge", "childhood friends", "1920s", "1960s", "1930s"]}}, 
+            "genres": [1, 2, 38, 7, 39, 34, 35]
+        }
+    }, 
     {
         "model": "movies.movie",
         "pk": 21,   
         "fields": {
             "title": "파이트 클럽", 
-            "genres": ["drama", "thriller", "comedy", "based on novel or book", "support group", "dual identity", "nihilism", "fight", "rage and hate", "insomnia", "dystopia", "alter ego", "breaking the fourth wall", "cult film", "split personality", "quitting a job", "dissociative identity disorder", "self destructiveness"]}}, 
+            "genres": [1, 25, 24, 5, 46]
+        }
+    }, 
     {
         "model": "movies.movie",
         "pk": 22,   
         "fields": {
             "title": "뻐꾸기 둥지 위로 날아간 새", 
-            "genres": ["drama", "nurse", "mentally disabled", "based on novel or book", "oregon", "usa", "lunatic asylum", "insane asylum", "friendship", "hospital", "medication", "female villain", "shock treatment"]}}, 
+            "genres": [1, 47, 5, 34]
+        }
+    }, 
     {
         "model": "movies.movie",
         "pk": 23,   
         "fields": {
             "title": "나소흑전기 : 첫만남편", 
-            "genres": ["animation", "fantasy", "action", "cat", "monster", "shapeshifting", "magic", "betrayal", "dilemma", "animal", "environmental", "journey", "anime", "wandering"]}}, 
+            "genres": [16, 18, 27, 20, 21]
+        }
+    }, 
     {
         "model": "movies.movie",
         "pk": 24,   
         "fields": {
             "title": "하라키리", 
-            "genres": ["action", "drama", "history", "japan", "suicide", "asia", "samurai", "revenge", "flashback", "poverty", "seppuku", "ronin", "jidaigeki", "17th century", "shogunate", "bushi"]}}, 
+            "genres": [27, 1, 9, 41, 8, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 25,   
         "fields": {
             "title": "하울의 움직이는 성", 
-            "genres": ["fantasy", "animation", "adventure", "flying", "witch", "rain", "castle", "scarecrow", "body exchange", "hatter", "bakery", "steampunk", "curse", "demon", "anime", "based on young adult novel"]}}, 
+            "genres": [18, 16, 37, 48, 21, 5]}}, 
     {
         "model": "movies.movie",
         "pk": 26, 
         "fields": {
             "title": "인터스텔라", 
-            "genres": ["adventure", "drama", "science fiction", "artificial intelligence", "nasa", "time warp", "spacecraft", "expedition", "future", "wormhole", "space travel", "famine", "black hole", "dystopia", "race against time", "quantum mechanics", "space", "rescue", "family relationships", "robot", "astronaut", "scientist", "single father", "farmer", "space station", "space adventure", "time paradox", "time-manipulation", "father daughter relationship", "2060s", "cornfield", "time manipulation"]}}, 
+            "genres": [37, 1, 49, 17, 50]}}, 
     {
         "model": "movies.movie",
         "pk": 27,   
         "fields": {
             "title": "목소리의 형태", 
-            "genres": ["animation", "drama", "suicide", "suicide attempt", "deaf", "friendship", "high school", "bullying", "coming of age", "based on manga", "woman director", "sign languages", "anime", "japanese high school", "japanese school"]}}, 
+            "genres": [16, 1, 51, 34, 42, 5, 21]}}, 
     {
         "model": "movies.movie",
         "pk": 28,   
         "fields": {
             "title": "반지의 제왕:반지 원정대", 
-            "genres": [" adventure", "fantasy", "action", "elves", "dwarf", "orcs", "loss of loved one", "based on novel or book", "river", "mountain", "mine", "maze", "magic", "fireworks", "castle", "volcano", "birthday party", "uncle", "addiction", "fugitive", "battle", "death", "blizzard", "wizard", "journey", "ring", "live action and animation", "sword and sorcery"]}}, 
+            "genres": [37, 18, 27, 4, 5, 20]}}, 
     {
         "model": "movies.movie",
         "pk": 29,   
         "fields": {
-            "title": "스타워즈 에피소드 5", 
-            "genres": ["제국의 역습: adventure", "action", "science fiction", "rebel", "android", "asteroid", "spacecraft", "space battle", "snowstorm", "space colony", "swamp", "rebellion", "space opera", "artic"]}}, 
+            "title": "스타워즈 에피소드 5:제국의 역습", 
+            "genres": [ 37, 27, 49, 33, 28, 29, 18, 17, 10, 8]}}, 
     {
         "model": "movies.movie",
         "pk": 30,   
         "fields": {
             "title": "피아니스트", 
-            "genres": ["drama", "war", "resistance", "holocaust (shoah)", "hunger", "world war ii", "prisoner of war", "homeland", "ghetto", "deportation", "jew persecution", "liberation", "warsaw ghetto", "polish resistance", "nazi", "biography", "concert", "survival", "based on memoir or autobiography", "pianist", "poland"]}}, 
+            "genres": [1, 10, 12, 13, 14, 9]}}, 
     {
         "model": "movies.movie",
         "pk": 31,   
         "fields": {
             "title": "위플래쉬", 
-            "genres": ["drama", "music", "new york city", "jazz", "obsession", "conservatory", "music teacher", "concert", "montage", "public humiliation", "jazz band", "young adult", "music school", "based on short film", "motivational"]}}, 
+            "genres": [1, 58, 38]}}, 
     {
         "model": "movies.movie",
         "pk": 32,   
         "fields": {
             "title": "신세기 에반게리온 엔드 오브 에반게리온", 
-            "genres": ["animation", "science fiction", "action", "philosophy", "post-apocalyptic future", "insanity", "futuristic", "mecha", "end of the world", "avant-garde", "meaningless existence", "rebirth", "anime", "psychological terror", "existential horror", "experimental surrealism"]}}, 
+            "genres": [16, 49, 27, 18, 21]}}, 
     {
         "model": "movies.movie",
         "pk": 33,   
         "fields": {
             "title": "세븐", 
-            "genres": ["crime", "mystery", "thriller", "self-fulfilling prophecy", "detective", "s.w.a.t.", "drug dealer", "evisceration", "rage and hate", "pride and vanity", "immoderateness", "insomnia", "investigation", "pension", "police", "serial killer", "religion", "whodunit", "neo-noir"]}}, 
+            "genres": [2, 52, 25, 27, 33, 30]}}, 
     {
         "model": "movies.movie",
         "pk": 34,   
         "fields": {
             "title": "인셉션", 
-            "genres": ["action", "science fiction", "adventure", "paris", "france", "spy", "philosophy", "allegory", "dream", "kidnapping", "manipulation", "airplane", "virtual reality", "car crash", "heist", "rescue", "mission", "memory", "architecture", "los angeles", "california", "dream world", "subconscious"]}}, 
+            "genres": [27, 49, 37, 18, 31, 32]}}, 
     {
         "model": "movies.movie",
         "pk": 35,   
         "fields": {
             "title": "선셋 대로", 
-            "genres": ["drama", "new years eve", "screenwriter", "jealousy", "butler", "loss of sense of reality", "diva", "delusion", "film noir", "hollywood", "los angeles", "california", "black and white", "madness", "aging actor", "has been", "silent film star", "grandiose  behavior", "kept man", "movie studio"]}}, 
+            "genres": [1, 31, 32, 22]}}, 
     {
         "model": "movies.movie",
         "pk": 36,   
         "fields": {
             "title": "이창", 
-            "genres": ["thriller", 
-    "mystery", "nurse", "photographer", "suspicion of murder", "girlfriend", "neighbor", "salesman", "whodunit", "convalescence", "voyeurism", "missing wife", "homebound", "suspicious behavior", "flower bed", "visiting nurse"]}}, 
+            "genres": [25, 52, 47, 2, 17]}}, 
     {
         "model": "movies.movie",
         "pk": 37,   
         "fields": {
             "title": "아메리칸 히스토리 x", 
-            "genres": ["drama", "neo-nazism", "prison", "skinhead", "sibling relationship", "rape", "fascism", "brother", "jail", "school", "swastika", "los angeles", "california", "family", "xenophobia", "interracial friendship", "nazism"]}}, 
+            "genres": [1, 13, 2, 43, 31, 32]}}, 
     {
         "model": "movies.movie",
         "pk": 38,   
         "fields": {
             "title": "이키루", 
-            "genres": ["drama", "bureaucracy", "japan", "age difference", "office", "night life", "sense of life", "playground", "obsequies", "swing", "loneliness", "infatuation", "bureaucrat"]}}, 
+            "genres": [1, 41, 53]}}, 
     {
         "model": "movies.movie",
         "pk": 39,   
         "fields": {
             "title": "위대한 독재자", 
-            "genres": ["comedy", "war", "dictator", "hairdresser", "amnesia", "fascism", "world war ii", "jewish ghetto", "world war i", "nazi", "propaganda", "national socialism", "national socialist party", "speech", "satire", "black and white", "barbershop", "anti war", "fictitious country"]}}, 
+            "genres": [24, 10, 43, 12, 13, 22]}}, 
     {
         "model": "movies.movie",
         "pk": 40,   
         "fields": {
             "title": "양들의 침묵", 
-            "genres": ["crime", "drama", "thriller", "based on novel or book", "fbi", "kidnapping", "psychopath", "murder", "serial killer", "psychological thriller", "brutality", "cannibal", "moth", "virginia"]}}, 
+            "genres": [2, 1, 25, 5, 39]}}, 
     {
         "model": "movies.movie",
         "pk": 41,   
         "fields": {
             "title": "모노노케 히메", 
-            "genres": ["adventure", "fantasy", "animation", "fight", "wolf", "human vs nature", "leprosy", "wild boar", "territory", "feral child", "friendship", "rural area", "decapitation", "historical fiction", "spirit", "demon", "nature", "environmentalism", "deforestation", "anime", "industrialization"]}}, 
+            "genres": [37, 18, 16, 46, 34, 48, 21]}}, 
     {
         "model": "movies.movie",
         "pk": 42,   
         "fields": {
             "title": "시티 라이트", 
-            "genres": ["comedy", "romance", "drama", "suicide attempt", "operation", "blindness and impaired vision", "love of ones life", "eye operation", "flower shop", "flower girl", "tramp", "love", "black and white", "millionaire", "silent film", "blind girl", "little tramp"]}}, 
+            "genres": [24, 23, 1, 51, 22]}}, 
     {
         "model": "movies.movie",
         "pk": 43,   
         "fields": {
             "title": "천국과 지옥", 
-            "genres": ["crime", "drama", "mystery", "thriller", "manager", "ransom", "kidnapping", "blackmail", "chauffeur", "baby-snatching", "police", "film noir", "shoe", "japanese noir", "emaciation"]}}, 
+            "genres": [2, 1, 52, 25]}}, 
     {
         "model": "movies.movie",
         "pk": 44,   
         "fields": {
             "title": "레옹", 
-            "genres": ["crime", "drama", "action", "new york city", "corruption", "loss of loved one", "assassin", "police brutality", "hotel room", "s.w.a.t.", "immigrant", "hitman", "training", "revenge", "murder", "loneliness", "neighbor", "tragic love", "cult film", "city life", "neo-noir", "complex relationship"]}}, 
+            "genres": [2, 1, 27, 38, 7, 4, 8, 39, 53, 30]}}, 
     {
         "model": "movies.movie",
         "pk": 45,   
         "fields": {
             "title": "죽은 시인의 사회", 
-            "genres": ["drama", "individual", "philosophy", "poetry", "professor", "literature", "friendship", "teacher", "coming of age", "school play", "vermont", "schoolteacher", "preparatory school", "1950s", "teenager"]}}, 
+            "genres": [1, 34, 42, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 46,   
         "fields": {
             "title": "빽 투 더 퓨쳐", 
-            "genres": ["adventure", "comedy", "science fiction", "clock tower", "flying car", "car race", "terrorist", "lightning", "guitar", "plutonium", "inventor", "journey in the past", "invention", "time travel", "race against time", "bullying", "mad scientist", "fish out of water", "teenage love", "destiny", "hidden identity", "love and romance", "teenage life", "changing the past or future", "1950s"]
+            "genres": [37, 24, 49, 35, 23]
     }}, 
     {
         "model": "movies.movie",
         "pk": 47,   
         "fields": {
             "title": "모던 타임즈", 
-            "genres": ["comedy", "drama", "factory", "ambulance", "invention", "tramp", "great depression", "industrial revolution", "slapstick comedy", "black and white", "machine", "pardon", "guilty", "silent film"]}}, 
+            "genres": [24, 1, 22]}}, 
     {
         "model": "movies.movie",
         "pk": 48,   
         "fields": {
             "title": "모퉁이 가게", 
-            "genres": ["comedy", "drama", "romance", "lovesickness", "budapest", "hungary", "salesclerk", "man woman relationship", "pen pals", "secret love", "love", "music box", "bickering", "gift shop", "holiday season", "christmas", "co-workers", "brownnoser"]}}, 
+            "genres": [24, 1, 23, 4, 54]}}, 
     {
         "model": "movies.movie",
         "pk": 49,   
         "fields": {
             "title": "컴 앤 씨", 
-            "genres": ["drama", "war", "war crimes", "world war ii", "nazi", "wehrmacht", "insanity", "surrealism", "teenage girl", "atrocity", "genocide", "russian army", "mine field", "horrors of war", "premature aging", "byelorussia", "children in wartime"]}}, 
+            "genres": [1, 10, 2, 12, 13, 33]}}, 
     {
         "model": "movies.movie",
         "pk": 50,   
         "fields": {
             "title": "옛날 옛적 서부에서", 
-            "genres": ["drama", "western", "loss of loved one", "small town", "harmonica", "wedding party", "spaghetti western", "arizona territory", "intercontintental railroad", "outlaw gang", "water pump", "mysterious character", "boom town", "railroad company", "hope for a new life", "railroad construction"]}}, 
+            "genres": [1, 4]}}, 
     {
         "model": "movies.movie",
         "pk": 51,   
         "fields": {
             "title": "울프워커스", 
-            "genres": ["animation", "family", "adventure", "fantasy", "shapeshifting", "wolf", "magic", "wolfs lair", "fairy tale", "feral child", "forest", "friendship", "woods", "female protagonist", "ireland", "family", "folklore", "werewolf child", "healer", "wolves", "irish folklore", "hand drawn animation", "father daughter relationship", "mother daughter relationship", "fantasy", "1600s", "enchanted forest"]}}, 
+            "genres": [16, 17, 37, 18, 20, 34, 17, 50, 18, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 52,   
         "fields": {
             "title": "퍼펙트 블루", 
-            "genres": ["animation", "thriller", "japan", "paranoia", "career", "celebrity", "stalker", "singer", "fame", "female protagonist", "psychological thriller", "mental illness", "madness", "split personality", "j-pop", "anime", "aspiring actress"]}}, 
+            "genres": [16, 25, 41, 45, 21]}}, 
     {
         "model": "movies.movie",
         "pk": 53,   
         "fields": {
             "title": "지옥의 묵시록", 
-            "genres": ["drama", "war", "cia", "drug abuse", "journalist", "based on novel or book", "guerrilla warfare", "vietnam", "vietnam war", "vietcong", "cambodia", "secret mission", "army", "insanity", "epic", "surrealism", "tribe", "mission", "green beret", "jungle", "descent into madness", "brutality", "riverboat", "military", "anti war"]}}, 
+            "genres": [1, 10, 5, 27, 33]}}, 
     {
         "model": "movies.movie",
         "pk": 54,   
         "fields": {
             "title": "영광의 길", 
-            "genres": ["drama", "war", "germany", "france", "based on novel or book", "general", "patriotism", "world war i", "army", "idealism", "cowardice", "idealist", "black and white", "soldier", "cult film", "anti war", "1910s", "fighting the system"]}}, 
+            "genres": [1, 10, 5, 33, 22, 35, 27]}}, 
     {
         "model": "movies.movie",
         "pk": 55,   
         "fields": {
-            "title": "언터처블", 
-            "genres": ["1%의 우정: drama", "comedy", "male friendship", "masseuse", "friendship", "based on true story", "aristocrat", "paragliding", "interracial friendship", "unlikely friendship", "duringcreditsstinger", "quadriplegic", "quadriplegia"]}}, 
+            "title": "언터처블:1%의 우정", 
+            "genres": [1, 24, 34, 15, 55]}}, 
     {
         "model": "movies.movie",
         "pk": 56,   
         "fields": {
             "title": "고령가 소년 살인 사건", 
-            "genres": ["crime", "drama", "romance", "baseball bat", "high school", "taiwan", "based on true story", "murder", "coming of age", "gang", "youth gang", "juvenile delinquent", "teenage boy", "troubled teen", "first love", "taipei", "1960s", "slow cinema", "teenage protagonist"]}}, 
+            "genres": [2, 1, 23, 15, 39, 42, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 57,   
         "fields": {
             "title": "올드보이", 
-            "genres": ["drama", "thriller", "mystery", "action", "hypnosis", "sushi restaurant", "rage and hate", "notebook", "daughter", "hostility", "sin", "revenge", "loneliness", "torture", "based on manga", "urination", "anger", "catholic", "incest", "neo-noir", "asian origins", "remade", "south korea", "hammer", "driven to suicide"]}}, 
+            "genres": [1, 25, 52, 27, 2, 8, 53, 30, 26]}}, 
     {
         "model": "movies.movie",
         "pk": 58,   
         "fields": {
             "title": "마미", 
-            "genres": ["drama", "parent child relationship", "karaoke", "canada", "quebec", "dysfunctional family", "coming of age", "single mother", "juvenile delinquent", "mental illness", "dream sequence", "institutionalization", "oedipus complex", "behavioral disorders", "mother son relationship"]}}, 
+            "genres": [1, 19, 17, 42, 45, 36]}}, 
     {
         "model": "movies.movie",
         "pk": 59,   
         "fields": {
             "title": "어벤져스:인피니티 워", 
-            "genres": ["adventure", "action", "science fiction", "magic", "sacrifice", "superhero", "based on comic", "space", "battlefield", "genocide", "magical object", "super power", "aftercreditsstinger", "marvel cinematic universe (mcu)", "cosmic"]}}, 
+            "genres": [37, 27, 49, 20, 28, 29, 18, 60, 56, 57, 5]}}, 
     {
         "model": "movies.movie",
         "pk": 60,   
         "fields": {
             "title": "극장판 귀멸의 칼날:무한열차 편", 
-            "genres": ["animation", "action", "adventure", "fantasy", "thriller", "fight", "magic", "psychology", "supernatural", "gore", "survival", "tragedy", "coming of age", "based on manga", "demon", "historical", "family", "mutilation", "dark fantasy", "shounen", "anime", "taisho"]}}, 
+            "genres": [16, 27, 37, 18, 25, 46, 20, 60, 40, 42, 5, 48, 17, 21]}}, 
     {
         "model": "movies.movie",
         "pk": 61,   
         "fields": {
             "title": "클라우스", 
-            "genres": ["animation", "family", "adventure", "comedy", "fantasy", "holiday", "small town", "santa claus", "island", "postman", "friendship", "cartoon", "reindeer", "toy maker", "christmas", "19th century", "origin story", "town", "good versus evil"]}}, 
+            "genres": [16, 17, 37, 24, 18, 34, 54, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 62,   
         "fields": {
             "title": "라이온 킹", 
-            "genres": ["family", "animation", "drama", "loss of loved one", "lion", "father murder", "manipulation", "musical", "uncle", "murder", "warthog", "shaman", "redemption", "king", "scar", "family", "hyena", "meerkat", "mandrill", "murder confession", "wildebeest"]}}, 
+            "genres": [17, 16, 1, 4, 58, 39, 10, 17]}}, 
     {
         "model": "movies.movie",
         "pk": 63,   
         "fields": {
             "title": "멋진 인생", 
-            "genres": ["drama", "family", "fantasy", "holiday", "angel", "bank", "suicide attempt", "small town", "great depression", "family business ", "nervous breakdown", "old house", "alternate reality", "newlywed", "magic realism", "told in flashback", "guardian angel", "high school dance", "christmas"]}}, 
+            "genres": [1, 17, 18, 51, 54]}}, 
     {
         "model": "movies.movie",
         "pk": 64,   
         "fields": {
             "title": "페르소나", 
-            "genres": ["drama", "nurse", "confession", "dream", "identity crisis", "mental breakdown", "betrayal", "mute", "patient", "psychiatry", "submerged", "institution", "dual personality", "stage actress", "duality", "dissociative identities"]}}, 
+            "genres": [1, 47]}}, 
     {
         "model": "movies.movie",
         "pk": 65,   
         "fields": {
             "title": "아가씨", 
-            "genres": ["thriller", "drama", "romance", "based on novel or book", "con man", "pickpocket", "lesbian relationship", "swindler", "plot", "mansion", "lust", "lgbt", "noblewoman", "con woman", "1930s", "ladys maid", "handmade", "seducer", "japanese occupation of korea", "lesbian"]}}, 
+            "genres": [25, 1, 23, 5, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 66,   
         "fields": {
             "title": "그린 북", 
-            "genres": ["drama", "comedy", "southern usa", "friendship", "road trip", "racism", "pianist", "driver", "lgbt", "road movie", "music tour", "1960s", "roadtrip"]}}, 
+            "genres": [1, 24, 34, 58, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 67,   
         "fields": {
             "title": "늑대아이", 
-            "genres": ["animation", "family", "drama", "fantasy", "adventure", "wolf", "forest", "growing up", "death of father", "rural area", "werewolf", "single mother", "werewolf child", "farming community", "farming", "anime", "mother son relationship", "mother daughter relationship", "brother sister relationship"]}}, 
+            "genres": [16, 17, 1, 18, 37, 4, 21, 36]}}, 
     {
         "model": "movies.movie",
         "pk": 68,   
         "fields": {
             "title": "해밀턴", 
-            "genres": ["history", "drama", "upper class", "corruption", "adultery", "presidential election", "musical", "biography", "stage show", "based on play or musical", "18th century", "broadway musical", "pistol duel", "revolutionary war", "founding fathers", "stage musical", "filmed play", "live theatre"]}}, 
+            "genres": [9, 1, 7, 58, 14, 35, 10]}}, 
     {
         "model": "movies.movie",
         "pk": 69,   
         "fields": {
             "title": "사탄탱고", 
-            "genres": ["drama", "countryside", "based on novel or book", "cat", "hungary", "rain", "farm", "epic", "loneliness", "art house", "long take", "poverty", "black and white", "writer", "alcoholic", "mental illness", "remodernist", "nonlinear timeline", "multiple perspectives", "contemplative cinema"]}}, 
+            "genres": [1, 5, 53, 22, 45]}}, 
     {
         "model": "movies.movie",
         "pk": 70,   
         "fields": {
             "title": "자전거 도둑", 
-            "genres": ["drama", "rome", "italy", "italian", "riding a bicycle", "society", "poster", "thief", "search", "stolen bicycle", "madame", "unemployment", "realism", "neo realism", "italian neo realism"]}}, 
+            "genres": [1, 3, 35]}}, 
     
     {
         "model": "movies.movie",
         "pk": 71,   
         "fields": {
             "title": "검찰 측 증인", 
-            "genres": ["drama", "mystery", "crime", "nurse", "alibi", "cigarette", "letter", "widow", "murder", "lawyer", "trial", "courtroom", "murder mystery", "tiki culture"]}}, 
+            "genres": [1, 52, 2, 47, 39, 2]}}, 
     {
         "model": "movies.movie",
         "pk": 72,   
         "fields": {
             "title": "코코", 
-            "genres": ["family", "animation", "fantasy", "music", "comedy", "adventure", "mexico", "guitar", "musician", "skeleton", "afterlife", "singer", "life after death", "child", "day of the dead", "fairy tales"]}}, 
+            "genres": [17, 16, 18, 58, 24, 37]}}, 
     {
         "model": "movies.movie",
         "pk": 73,   
         "fields": {
             "title": "레이싱 인 더 레인", 
-            "genres": ["drama", "romance", "comedy", "washington dc", "usa", "based on novel or book", "car race", "reincarnation", "friendship", "sports", "racing", "dog", "animal", "race car driver", "pets", "father daughter relationship", "animal narrator"]}}, 
+            "genres": [1, 23, 24, 5, 34, 50]}}, 
     {
         "model": "movies.movie",
         "pk": 74,   
         "fields": {
             "title": "아파트 열쇠를 빌려드립니다", 
-            "genres": ["comedy", "drama", "romance", "new york city", "new years eve", "lovesickness", "age difference", "suicide attempt", "office", "flat", "spaghetti", "winter", "clerk", "tennis racket", "romantic comedy", "extramarital affair", "christmas"]}}, 
+            "genres": [24, 1, 23, 38, 51, 54]}}, 
     {
         "model": "movies.movie",
         "pk": 75,   
         "fields": {
             "title": "기예르모 델토로의 피노키오", 
-            "genres": ["animation", "fantasy", "drama", "music", "italy", "based on novel or book", "fascism", "woodcutter", "musical", "greed", "benito mussolini", "stop motion", "dark fantasy", "duringcreditsstinger", "1940s", "wooden dummy", "pinocchio"]}}, 
+            "genres": [16, 18, 1, 58, 3, 5, 43, 55, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 76,   
         "fields": {
             "title": "이블 데드 라이즈", 
-            "genres": ["horror", "thriller", "fantasy", "sibling relationship", "earthquake", "pregnancy", "sequel", "gore", "los angeles", "california", "demon", "evil", "necronomicon", "reboot", "demonic possession", "motherhood", "sisterhood", "sister sister relationship", "body horror", "apartment", "graphic violence"]}}, 
+            "genres": [44, 25, 18, 17, 59, 40, 31, 32, 48]}}, 
     {
         "model": "movies.movie",
         "pk": 77,   
         "fields": {
             "title": "앤트맨과 와스프:퀀텀매니아", 
-            "genres": ["action", "adventure", "science fiction", "hero", "ant", "sequel", "superhero", "based on comic", "family", "superhero team", "aftercreditsstinger", "duringcreditsstinger", "marvel cinematic universe (mcu)"]}}, 
+            "genres": [27, 37, 49, 11, 59, 28, 29, 17, 56, 55, 57]}}, 
     {
         "model": "movies.movie",
         "pk": 78,   
         "fields": {
             "title": "엑소시스트:더 바티칸", 
-            "genres": ["horror", "thriller", "fantasy", "spain", "rome", "italy", "vatican", "pope", "pig", "possession", "conspiracy", "devil", "exorcist", "skepticism", "catholic priest", "1980s", "supernatural horror"]}}, 
+            "genres": [44, 25, 18, 3, 60]}}, 
     {
         "model": "movies.movie",
         "pk": 79,   
         "fields": {
             "title": "가디언즈 오브 갤럭시 volume 3", 
-            "genres": ["science fiction", "adventure", "action", "hero", "sequel", "superhero", "based on comic", "mad scientist", "superhero team", "space opera", "raccoon", "aftercreditsstinger", "duringcreditsstinger", "marvel cinematic universe (mcu)", "cosmic", "outer space", "chosen family"]}}, 
+            "genres": [49, 37, 27, 11, 59, 28, 29, 56, 55, 57]}}, 
     {
         "model": "movies.movie",
         "pk": 80,   
         "fields": {
             "title": "아바타:물의 길", 
-            "genres": ["science fiction", "adventure", "action", "loss of loved one", "dying and death", "alien life-form", "resurrection", "sequel", "dysfunctional family", "alien planet", "distant future", "adopted child", "rebirth", "family dynamics", "adopted son", "stronger villain", "war"]}}, 
+            "genres": [49, 37, 27, 4, 17, 59, 10]}}, 
     {
         "model": "movies.movie",
         "pk": 81,   
         "fields": {
             "title": "크리드 3", 
-            "genres": ["drama", "action", "philadelphia", "pennsylvania", "husband wife relationship", "deaf", "sports", "sequel", "orphan", "former best friend", "ex-con", "childhood friends", "juvenile detention center", "boxing", "prodigy"]}}, 
+            "genres": [1, 27, 17, 59]}}, 
     {
         "model": "movies.movie",
         "pk": 82,   
         "fields": {
             "title": "스크림 6", 
-            "genres": ["horror", "mystery", "thriller", "new york city", "mask", "trauma", "halloween", "college", "fake identity", "sequel", "revenge", "public murder", "murder", "gore", "serial killer", "conspiracy theory", "social commentary", "police corruption", "slasher", "whodunit", "multiple stabbings", "brutality", "killing spree", "self-referential", "crime spree", "aftercreditsstinger", "sisterhood", "movie fan", "copycat killer", "masked villain", "stabbed to death", "sister sister relationship", "fbi agent", "post credit scene", "masked killer"]}}, 
+            "genres": [44, 52, 25, 38, 59, 8, 39, 40, 56, 2]}}, 
     {
         "model": "movies.movie",
         "pk": 83,   
         "fields": {
             "title": "존 윅 4", 
-            "genres": ["action", "thriller", "crime", "new york city", "martial arts", "hitman", "sequel", "organized crime", "osaka", "japan", "aftercreditsstinger", "hunted", "professional assassin", "neo-noir", "berlin"]}}, 
+            "genres": [27, 25, 2, 38, 59, 6, 41, 56, 30]}}, 
     {
         "model": "movies.movie",
         "pk": 84,   
         "fields": {
             "title": "헌트", 
-            "genres": ["thriller", "action", "spy", "assassin", "intelligence", "secret agent", "spying", "1980s", "korea president", "south korea", "inter-korean relations", "nis"]}}, 
+            "genres": [25, 27, 26, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 85,   
         "fields": {
             "title": "세븐 킹스 머스트 다이", 
-            "genres": ["action", "adventure", "history", "drama", "war", "fight", "kingdom", "battle for power", "heir to the throne", "crown", "king", "battle", "death of king", "invaders", "heirs"]}}, 
+            "genres": [27, 37, 9, 1, 10, 46, 10]}}, 
     {
         "model": "movies.movie",
         "pk": 86,   
         "fields": {
             "title": "피터팬 & 웬디", 
-            "genres": ["family", "fantasy", "action", "adventure", "island", "magic", "fairy", "fairy tale", "peter pan", "immortality", "remake", "pirate", "based on childrens book", "fantasy world", "live action remake"]}}, 
+            "genres": [17, 18, 27, 37, 20, 5]}}, 
     {
         "model": "movies.movie",
         "pk": 87,   
         "fields": {
             "title": "던전 앤 드래곤 - 도적들의 명예", 
-            "genres": ["adventure", "fantasy", "comedy", "platonic love", "gang of thieves", "role playing game", "based on video game", "dungeons and dragons", "heist gone wrong", "duringcreditsstinger", "father daughter relationship", "spell & sorcery", "wizardry"]}}, 
+            "genres": [37, 18, 24, 5, 55, 50]}}, 
     {
         "model": "movies.movie",
         "pk": 88,   
         "fields": {
             "title": "렌필드", 
-            "genres": ["horror", "comedy", "fantasy", "vampire", "police", "gore", "bugs", "mob family", "crooked cops", "immortal", "dracula", "abusive relationship", "bloody death", "violence"]}}, 
+            "genres": [44, 24, 18, 40, 2]}}, 
     {
         "model": "movies.movie",
         "pk": 89,   
         "fields": {
             "title": "65", 
-            "genres": ["science fiction", "adventure", "thriller", "monster", "asteroid", "cave", "giant monster", "dinosaur", "quicksand", "crash landing", "alien race", "sick child", "prehistoric adventure", "prehistoric times", "shipwrecked", "prehistory", "man vs nature", "father daughter relationship", "alien spaceship"]}}, 
+            "genres": [49, 37, 25, 50]}}, 
     {
         "model": "movies.movie",
         "pk": 90,   
         "fields": {
             "title": "블랙 팬서:와칸다 포에버", 
-            "genres": ["action", "adventure", "science fiction", "loss of loved one", "hero", "royal family", "sequel", "superhero", "based on comic", "royalty", "underwater", "political intrigue", "death in family", "mourning", "death of brother", "duringcreditsstinger", "death of king", "marvel cinematic universe (mcu)", "hidden civilization", "yucatan", "mayans"]}}, 
+            "genres": [27, 37, 49, 4, 11, 17, 59, 28, 29, 55, 57, 10]}}, 
     {
         "model": "movies.movie",
         "pk": 91,   
         "fields": {
             "title": "머미즈", 
-            "genres": ["animation", "comedy", "family", "adventure", "fantasy", "egypt", "museum", "mummy", "chariot race", "musical", "wedding ring", "archaeologist", "ancient egypt", "aftercreditsstinger", "journey", "london"]}}, 
+            "genres": [16, 24, 17, 37, 18, 58, 56, 35]}}, 
     {
         "model": "movies.movie",
         "pk": 92,   
         "fields": {
             "title": "메간", 
-            "genres": ["science fiction", "horror", "comedy", "artificial intelligence", "evil doll", "aunt niece relationship", "orphan", "car accident", "niece", "robot", "juvenile delinquent", "doll", "information leak", "dead dog", "nosy neighbor", "hit by a car", "dead parents", "attacked by a dog", "creepy doll", "possessed doll"]}}, 
+            "genres": [49, 44, 24]}}, 
     {
         "model": "movies.movie",
         "pk": 93,   
         "fields": {
             "title": "똑똑똑", 
-            "genres": ["horror", "thriller", "based on novel or book", "sacrifice", "faith", "end of the world", "apocalypse", "home invasion", "lgbt", "aftercreditsstinger", "adopted child", "adopted daughter", "gay", "same sex relationship", "religious symbolism"]}}, 
+            "genres": [44, 25, 5, 56]}}, 
     {
         "model": "movies.movie",
         "pk": 94,   
         "fields": {
             "title": "가디언즈 오브 갤럭시 홀리데이 스페셜", 
-            "genres": ["comedy", "science fiction", "adventure", "holiday", "celebrity", "superhero", "talking dog", "saving christmas", "aftercreditsstinger", "marvel cinematic universe (mcu)", "christmas special", "holiday special", "space dog"]}}, 
+            "genres": [24, 49, 37, 28, 56, 57]}}, 
     {
         "model": "movies.movie",
         "pk": 95,   
         "fields": {
             "title": "스파이더맨:노 웨이 홈", 
-            "genres": ["action", "adventure", "science fiction", "new york city", "loss of loved one", "showdown", "secret identity", "hero", "magic", "villain", "dangerous", "vigilante", "portal", "sequel", "superhero", "superhero team", "alternate reality", "masked vigilante", "spider web", "aftercreditsstinger", "duringcreditsstinger", "marvel cinematic universe (mcu)", "teenage hero", "fight for justice", "multiverse", "superhero teamup", "returning hero", "crossover", "teamwork"]}}, 
+            "genres": [27, 37, 49, 38, 4, 11, 20, 59, 28, 56, 55, 57, 18]}}, 
     {
         "model": "movies.movie",
         "pk": 96,   
         "fields": {
             "title": "분노의 질주:홉스 & 쇼", 
-            "genres": ["action", "adventure", "comedy", "london", "england", "biological weapon", "secret organization", "family clan", "spin off", "family reunion", "buddy comedy", "samoa", "aftercreditsstinger", "duringcreditsstinger", "buddy movie", "mother son relationship", "father daughter relationship", "brother sister relationship"]}}, 
+            "genres": [27, 37, 24, 17, 56, 55, 36, 50]}}, 
     {
         "model": "movies.movie",
         "pk": 97,   
         "fields": {
             "title": "토르:러브 앤 썬더", 
-            "genres": ["fantasy", "action", "comedy", "ex-girlfriend", "hero", "greek mythology", "sequel", "superhero", "based on comic", "shadow", "norse mythology", "aftercreditsstinger", "duringcreditsstinger", "marvel cinematic universe (mcu)", "heroes", "norse god", "god of thunder", "colorless", "child abduction", "thor", "nude male lead"]}}, 
+            "genres": [18, 27, 24, 11, 59, 28, 29, 56, 55, 57]}}, 
     {
         "model": "movies.movie",
         "pk": 98,   
         "fields": {
             "title": "배트맨:고담에 찾아온 운명", 
-            "genres": ["animation", "fantasy", "horror", "action", "mystery", "cult", "superhero", "based on comic", "mad doctor", "demon", "supernatural creature", "explorer", "masked vigilante", "masked superhero", "ancient evil", "magic book"]}}]
+            "genres": [16, 18, 44, 27, 52, 28, 29, 48, 60, 20]}}]
 
 
