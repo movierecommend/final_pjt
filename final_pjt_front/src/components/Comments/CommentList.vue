@@ -11,7 +11,7 @@
           <div v-if="isEditing">
             <input type="text" v-model="payload.content">
             <button @click="onUpdate">Update</button> |
-            <button @click="switchIsEditing">Cancle</button>
+            <button @click="switchIsEditing">Cancel</button>
           </div>
           <div style="float:right;" v-if="currentUser.username === comment.user.username && !isEditing">
             <button class=" mt-3 btn btn-sm btn-outline-secondary waves-effect " @click="deleteComment(payload)">삭제</button>
@@ -28,7 +28,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'CommentListItem',
+  name: 'CommentList',
   props: { comment: Object },
   data() {
     return {

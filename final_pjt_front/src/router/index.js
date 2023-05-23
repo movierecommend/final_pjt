@@ -5,9 +5,9 @@ import store from '@/store'
 import HomeView from '@/views/HomeView'
 import RecommendView from '@/views/RecommendView'
 import FunView from '@/views/FunView'
-import ArticleView from '@/views/ArticleView'
+import ArticleListView from '@/views/ArticleListView'
 import CreateView from '@/views/CreateView'
-import DetailView from '@/views/DetailView'
+import ArticleDetailView from '@/views/ArticleDetailView'
 import EditView from '@/views/EditView'
 import MypageView from '@/views/MypageView'
 import SignupView from '@/views/SignupView'
@@ -43,7 +43,7 @@ const routes = [
   {
     path: '/articles',
     name: 'articles',
-    component: ArticleView
+    component: ArticleListView
   },
   {
     path: '/articles/new',
@@ -53,7 +53,7 @@ const routes = [
   {
     path: '/articles/:articlePk',
     name: 'article',
-    component: DetailView,
+    component: ArticleDetailView,
   },
   {
     path: '/articles/:articlePk/edit',

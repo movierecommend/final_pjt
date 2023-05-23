@@ -11,7 +11,7 @@
     <div class="box-content card">
       <div class="card-body" style="text-align:left;">
           <p style="font-family: 'GmarketSansMedium'; font-size:18px;">
-            {{ article.content }}
+            {{ article?.content }}
           </p>
         </div>
     </div>
@@ -23,7 +23,7 @@
 
   <!-- Article Edit/Delete UI -->
   <div v-if="isAuthor">
-    <router-link :to="{ name: 'articleEdit', params: { articlePk: article.pk} }">
+    <router-link :to="{ name: 'articleEdit', params: { articlePk: article.id} }">
       <button style="float: right; font-family:GimpoGothic" class="mt-3 btn btn-outline-secondary waves-effect mb-4">수정</button>
     </router-link>
     <button style="float: right; font-family:GimpoGothic" class=" mx-3 mt-3 btn btn-outline-secondary waves-effect mb-4" @click="deleteArticle({ articlePk: article.pk })">삭제</button>
@@ -49,7 +49,7 @@ import CommentList from '@/components/Comments/CommentList.vue'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'DetailView',
+  name: 'ArticleDetailView',
   components: { CommentList },
   data() {
     return {
@@ -57,12 +57,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['article', 'currentUser', 'isAuthor']),
+    ...mapGetters('articles/', ['article', 'currentUser', 'isAuthor']),
     like_count() {
       return this.article.like_users?.length
     }},
   methods: {
-    ...mapActions(['fetchArticle', 'likeArticle', 'deleteArticle'])
+    ...mapActions('articles/', ['fetchArticle', 'likeArticle', 'deleteArticle'])
   },
   created() {
     this.articlePk = this.$route.params.articlePk

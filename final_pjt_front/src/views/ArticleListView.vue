@@ -12,7 +12,7 @@ import { mapGetters } from 'vuex'
 import ArticleList from '@/components/Article/ArticleList.vue'
 
 export default {
-  name: 'ArticleView',
+  name: 'ArticleListView',
   components: {
     ArticleList,
   },

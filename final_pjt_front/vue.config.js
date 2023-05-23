@@ -4,8 +4,6 @@ module.exports = defineConfig({
 })
 
 
-
-
 module.exports = {
   devServer: {
     proxy: {
