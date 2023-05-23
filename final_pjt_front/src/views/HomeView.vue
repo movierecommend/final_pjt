@@ -1,29 +1,17 @@
 <template>
   <div>
-    <h1>Home Page</h1>
+    <boxoffice-daily></boxoffice-daily>
   </div>
 </template>
 
 <script>
+import BoxofficeDaily from '@/components/Home/BoxofficeDaily.vue'
+
 export default {
   name: 'HomeView',
-  data() {
-    return {
-      
-    }
-  },
-  methods: {
+  components: {
+    BoxofficeDaily
   }
 }
 
-
-// // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-
-// export default {
-//   name: 'HomeView',
-//   components: {
-//     HelloWorld
-//   }
-// }
 </script>
