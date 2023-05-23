@@ -1,8 +1,7 @@
 from django.urls import path
-from . import views
+from .views import get_netflix_ranking
 
-app_name = 'main'
 urlpatterns = [
-    # path('', views.index),
-    path('api/movies/', views.MovieListView.as_view(), name='movie_list'),
+    path('api/netflix_ranking/', get_netflix_ranking, name='netflix_ranking'),
+
 ]

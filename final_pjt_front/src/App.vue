@@ -15,6 +15,7 @@
       <router-link :to="{ name: 'articles' }">Community</router-link>
     </nav>
     <router-view/>
+    
   </div>
   
 </template>
@@ -22,9 +23,14 @@
 <script>
 import { mapGetters } from 'vuex'
 
+// import MovieListView from "./views/MovieListView.vue"
+
+
 export default {
   name: 'App',
-  components: {},
+  components: {
+    // MovieListView
+  },
   data () {
     return {
       userPk: ''
