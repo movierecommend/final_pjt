@@ -47,4 +47,4 @@ def netflix_ranking():
 
 
 
-netflix_ranking()
+# netflix_ranking()

@@ -15,7 +15,7 @@
       </div>
       <div style="position: relative; overflow: hidden;">
         <ol class="swiper-wrapper" style="margin-left: 0px; transform: translate3d(0px, 0px, 0px);">
-          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-prev"><</div>
           <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide" style="margin-left: 0px;width: 204px;margin-right: 20px;">
             <div class="caard item_poster swiper-slide">
               <div class="poster_movie">
@@ -31,26 +31,40 @@
               </span>
             </div>
           </li>
-          <div class="swiper-button-next"></div>
+          <div class="swiper-button-next">></div>
         </ol>   
       </div>
     </div>
     </div>
 </template>
-<!-- <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-> -->
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 <script>
-import Swiper from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import { mapGetters } from "vuex"
-var mySwiper = new Swiper('.swiper-container', {
-	slidesPerView: 5, //슬라이드를 한번에 3개를 보여준다
-  spaceBetween: 30, //슬라이드간 padding 값 30px 씩 떨어뜨려줌
-	loop: true, //loop 를 true 로 할경우 무한반복 슬라이드 false 로 할경우 슬라이드의 끝에서 더보여지지 않음
+// var mySwiper = new Swiper('.swiper-container', {
+// 	slidesPerView: 5, //슬라이드를 한번에 5개를 보여준다
+//   spaceBetween: 30, //슬라이드간 padding 값 30px 씩 떨어뜨려줌
+// 	loop: false, //loop 를 true 로 할경우 무한반복 슬라이드 false 로 할경우 슬라이드의 끝에서 더보여지지 않음
+// });
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'vertical',
+  loop: false,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
 
 export default {
@@ -62,6 +76,10 @@ export default {
 </script>
 
 <style scoped>
+  .swiper {
+    width: 600px;
+    height: 300px;
+  }
   .boxoffice {
     text-align: left;
     background-color: #0000;
@@ -163,7 +181,6 @@ export default {
     font-size: 16px;
     line-height: 21px;
     white-space: nowrap;
-
   }
   
 </style>
