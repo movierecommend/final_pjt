@@ -177,6 +177,14 @@ export default {
     transition-property: transform;
     box-sizing: content-box;
     white-space: nowrap;
+<<<<<<< HEAD
+    /* .caard {
+      display: inline-block;
+    }
+    &::-webkit-scrollbar { */
+    display: none;
+  /* } */
+=======
   }
 
   .swiper-slide {
@@ -201,6 +209,7 @@ export default {
 
   .card {
     display: inline-block;
+>>>>>>> 740b2695e16cc26b235ed384e183109f4cc7c1ab
   }
 
   ol {
