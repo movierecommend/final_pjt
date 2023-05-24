@@ -8,7 +8,6 @@
             절세미녀(남)인 그녀(그)에게 나는?</h3>
             <br>
         </div>
-
         <div>
           <button :disabled="selected_genre_id.includes(23)" @click="selectOption([23])">사랑에 빠진다</button>  |
           <!-- 23 romance -->
@@ -23,8 +22,6 @@
           <h4>romance 장르 선택!</h4>
         </div>
       </div>
-      
-
     <hr>
       <div>
         <div>
@@ -45,9 +42,7 @@
       <div v-else-if="!selectedOption.includes(16)">
         <!-- <h4>reality 장르 선택!</h4> -->
       </div>
-
     <hr>
-
       <div>
         <div>
           <h3>SSAFY 1학기를 마친 후, 황금같은 일주일의 방학!
@@ -74,7 +69,6 @@
         </div> 
       </div>
       <hr>
-
       <div>
         <div>
           <h3>기차가 나에게 달려온다. 내겐 버튼이 있다.
@@ -96,10 +90,7 @@
           <!-- <h4>hero 장르 미선택!</h4> -->
         </div>
       </div>
-
      <hr>
-
-      
       <div>
         <div>
           <h3>친구의 연인을 사랑하게 됐다.
@@ -120,34 +111,6 @@
           <h4>friendship 장르 선택!</h4>
         </div> 
       </div>
-
-      <!-- <div>
-        <div>
-          <h3>나는 지금 타임머신에 올라탔다.
-            <br>
-            과거로 갈까 미래로 갈까
-          </h3>
-        </div>
-          <br>
-        <div>
-          <button @click="selectOption('9')">과거</button>  |-->
-          <!-- 12 world war ii -->
-          <!-- 14 biography -->
-          <!-- 15 based on true story -->
-          <!-- 35 past -->
-          <!-- <button @click="selectOption('49')">누른다</button> -->
-          <!-- 20 magic -->
-          <!-- 29  -->
-        <!-- </div>
-      <br>
-        <div v-if="selectedOption === '9'">
-          <h4>history 장르 선택!</h4>
-        </div>
-        <div v-else-if="selectedOption === '49'">
-          <h4>science fiction 장르 선택!</h4>
-        </div>
-      </div> 
-     <hr>  -->
 
   {{selected_genre_id}}
 
