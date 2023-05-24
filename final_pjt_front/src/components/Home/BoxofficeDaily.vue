@@ -1,8 +1,11 @@
 <template>
   <div>
-    <iframe :src="this.realurl" width="900px" height="800px">
-        <p>지원하지 않는 브라우저입니다.</p>
-    </iframe>
+    <h2>실시간 박스오피스 {{this.rank}}위! {{ this.movieNm }}의 예고편입니다.</h2>
+    <div style="background-color: black;">
+      <iframe :src="this.realurl" width="900px" height="600px">
+          <p>지원하지 않는 브라우저입니다.</p>
+      </iframe>
+    </div>
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
     <div class="swiper-container">
       <div class="swiper-button-prev"></div>
@@ -10,7 +13,7 @@
         <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide">
           <div class="card2 item_poster swiper-slide">
             <div class="poster_movie">
-              <img :src="require(`@/assets/posterimg/${box.rank}.jpg`)" style="margin-left: 0px; width: 204px; margin-right: 20px;" />
+              <img :src="require(`@/assets/posterimg/${box.rank}.jpg`)" style="margin-left: 0px; width: 204px; margin-right: 20px;" @click="updateUrl(box.movieNm, box.rank)"/>
               <span class="rank_num">{{ box.rank }}</span>
             </div>
             <span class="movieName">
@@ -24,6 +27,8 @@
       </ol>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>
+      <br><br>
+      <h2>실시간 박스오피스</h2><br>
     </div>
   </div>
 </div>
@@ -45,20 +50,65 @@ export default {
   data() {
     return {
       realurl: '',
-    };
-  },
+      rank: 1,
+      originalurl:'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2',
+      movieNm: '가디언즈 오브 갤럭시',
+      title: '',
+      API_KEY: 'D2VY8455A80060QVE094',
+      updatedurl: 'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&ServiceKey=D2VY8455A80060QVE094'
+  }},
   methods: {
+    updateUrl(movieNm, rank) {
+      this.rank = rank
+      this.movieNm = movieNm
+      this.updatedurl = new URL(this.originalurl + `&title=${this.movieNm}` + `&ServiceKey=${this.API_KEY}`)['href']
+      this.fetchTrailerUrl()
+    },
+    // fetchPosterImg() {
+    //   fetch(
+    //     this.updatedurl
+    //   )
+    //   .then((response) => response.text())
+    //   .then((data) => {
+    //       const parser1 = new DOMParser();
+    //       const xmlDoc1 = parser1.parseFromString(data, 'text/xml');
+    //       const resultNode1 = xmlDoc1.querySelector('Result');
+    //       const vodsUrls1 = resultNode1.getElementsByTagName('Row');
+
+    //       for (var index = 0; index < vodsUrls1.length; index++) {
+    //         if (vodsUrls1[index].querySelector('prodYear').textContent.trim() === '2023') {
+    //           const posterUrls = vodsUrls1[index].querySelector('posters')
+    //           const posterUrl = posterUrls.textContent.trim().split(',')[0];
+    //           this.posterUrl = posterUrl
+    //           break;
+    //         }
+    //         // const posterUrl2 = this.posterUrl
+    //     }})
+    //     .catch((error) => {
+    //       console.error('Error fetching XML data:', error);
+    //     });
+    // },
+    
     fetchTrailerUrl() {
       fetch(
-        'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&releaseDate=2022&ServiceKey=D2VY8455A80060QVE094'
+        this.updatedurl
       )
         .then((response) => response.text())
         .then((data) => {
           const parser = new DOMParser();
           const xmlDoc = parser.parseFromString(data, 'text/xml');
           const resultNode = xmlDoc.querySelector('Result');
-          const vodsUrl = resultNode.querySelector('Row').querySelector('vods').querySelector('vod').querySelector('vodUrl');
-          const vodsUrl2 = vodsUrl.textContent;
+          const vodsUrls = resultNode.getElementsByTagName('Row');
+      
+          for (var index = 0; index < vodsUrls.length; index++) {
+            if (vodsUrls[index].querySelector('prodYear').textContent.trim() === '2023') {
+              const vodUrl = vodsUrls[index].querySelector('vods').querySelector('vod').querySelector('vodUrl');
+              const vodsUrl = vodUrl.textContent.trim();
+              this.vodsUrl = vodsUrl
+              break;
+            }
+          }
+          const vodsUrl2 = this.vodsUrl
           axios
             .get(vodsUrl2)
             .then((response) => {
@@ -67,7 +117,7 @@ export default {
               const doc = parser.parseFromString(html, 'text/html');
               const anchorMovie = doc.getElementById('anchorMovieMovie');
               const vodElements = anchorMovie.getElementsByTagName('a');
-              const beforeurl = vodElements[2].getAttribute('href');
+              const beforeurl = vodElements[0].getAttribute('href');
               const cdataStart = "javascript:fcnPlay('";
               const cdataEnd = "');";
               const url = beforeurl.substring(cdataStart.length, beforeurl.length - cdataEnd.length);
@@ -215,5 +265,9 @@ export default {
     font-size: 16px;
     line-height: 21px;
   }
-
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: absolute;
+    top: 70%;
+  }
 </style>
