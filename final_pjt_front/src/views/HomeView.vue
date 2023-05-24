@@ -1,9 +1,15 @@
 <template>
   <div>
+<<<<<<< HEAD
     <boxoffice-daily></boxoffice-daily>
     <h1>Home Page</h1>
     <WatchaListView />
     <NetflixListView />
+=======
+    <boxoffice-daily />
+    <!-- <WatchaListView />
+    <NetflixListView /> -->
+>>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
 
   </div>
 </template>
@@ -19,8 +25,13 @@ export default {
   name: 'HomeView',
   components: {
     BoxofficeDaily,
+<<<<<<< HEAD
     WatchaListView,
     NetflixListView,
+=======
+    // WatchaListView,
+    // NetflixListView,
+>>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
     
   },
   data() {
