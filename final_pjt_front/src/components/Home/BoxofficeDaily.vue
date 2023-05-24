@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 
 
 
@@ -35,10 +36,40 @@
         </ol>   
       </div>
     </div>
+=======
+  <div>
+    <iframe :src="this.realurl" width="900px" height="800px">
+        <p>지원하지 않는 브라우저입니다.</p>
+    </iframe>
+    <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
+    <div class="swiper-container">
+      <div class="swiper-button-prev"></div>
+      <ol class="swiper-wrapper">
+        <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide">
+          <div class="card2 item_poster swiper-slide">
+            <div class="poster_movie">
+              <img :src="require(`@/assets/posterimg/${box.rank}.jpg`)" style="margin-left: 0px; width: 204px; margin-right: 20px;" />
+              <span class="rank_num">{{ box.rank }}</span>
+            </div>
+            <span class="movieName">
+              <span v-if="box.rankOldAndNew == 'NEW'">
+                <button style="color: red;" class="btn btn-border-none btn-sm">{{ box.rankOldAndNew }}</button>
+              </span>
+              {{ box.movieNm }}
+            </span>
+          </div>
+        </li>
+      </ol>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+>>>>>>> 740b2695e16cc26b235ed384e183109f4cc7c1ab
     </div>
+  </div>
+</div>
 </template>
 
 <script>
+<<<<<<< HEAD
 // import Swiper, { Navigation, Pagination } from 'swiper';
 // import 'swiper/css';
 // import 'swiper/css/navigation';
@@ -66,54 +97,138 @@ import { mapGetters } from "vuex"
 //     prevEl: '.swiper-button-prev',
 //   },
 // });
+=======
+import Swiper, { Navigation, Pagination } from 'swiper';
+import 'swiper/swiper-bundle.css';
+import { mapGetters } from 'vuex';
+import axios from 'axios';
+
+Swiper.use([Navigation, Pagination]);
+>>>>>>> 740b2695e16cc26b235ed384e183109f4cc7c1ab
 
 export default {
   name: 'BoxofficeDaily',
   computed: {
-    ...mapGetters("home/", ["boxoffice"]),
+    ...mapGetters('home/', ['boxoffice']),
   },
-}
+  data() {
+    return {
+      realurl: '',
+    };
+  },
+  methods: {
+    fetchTrailerUrl() {
+      fetch(
+        'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&releaseDate=2022&ServiceKey=D2VY8455A80060QVE094'
+      )
+        .then((response) => response.text())
+        .then((data) => {
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(data, 'text/xml');
+          const resultNode = xmlDoc.querySelector('Result');
+          const vodsUrl = resultNode.querySelector('Row').querySelector('vods').querySelector('vod').querySelector('vodUrl');
+          const vodsUrl2 = vodsUrl.textContent;
+          axios
+            .get(vodsUrl2)
+            .then((response) => {
+              const html = response.data;
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              const anchorMovie = doc.getElementById('anchorMovieMovie');
+              const vodElements = anchorMovie.getElementsByTagName('a');
+              const beforeurl = vodElements[2].getAttribute('href');
+              const cdataStart = "javascript:fcnPlay('";
+              const cdataEnd = "');";
+              const url = beforeurl.substring(cdataStart.length, beforeurl.length - cdataEnd.length);
+              const realurl = 'https://www.kmdb.or.kr/trailer/trailerPlayPop?pFileNm=' + url;
+              this.realurl = realurl;
+              // console.log(this.realurl);
+            })
+            .catch((error) => {
+              console.error('Error fetching trailer URL:', error);
+            });
+        })
+        .catch((error) => {
+          console.error('Error fetching XML data:', error);
+        });
+    },
+  },
+  mounted() {
+    new Swiper('.swiper-container', {
+      direction: 'horizontal',
+      slidesPerView: 5,
+      spaceBetween: 15,
+      debugger: true,
+      mousewheel: false,
+      loop: false,
+      centeredSlides: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    this.fetchTrailerUrl();
+  },
+};
 </script>
 
 <style scoped>
-  .swiper {
-    width: 600px;
+  .swiper-container {
+    width: 70%;
     height: 300px;
+    margin: 0 auto;
   }
+
   .boxoffice {
-    text-align: left;
+    text-align: center;
     background-color: #0000;
   }
-  .movie_visual .thumb_img {
-    position: relative;
-    max-width: 1960px;
-    height: 730px;
-    margin: 0 auto;
-    background: #313137;
-    height: 100%;
-    opacity: 0;
-    width: auto;
-}
 
   .swiper-wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
-    z-index: 1;
     display: flex;
+    justify-content: center;
     transition-property: transform;
     box-sizing: content-box;
-    overflow: hidden;
-    /* -webkit-overflow-scrolling: touch; */
-    overflow-x: scroll;
-    overflow-y: hidden;
     white-space: nowrap;
+<<<<<<< HEAD
     /* .caard {
       display: inline-block;
     }
     &::-webkit-scrollbar { */
     display: none;
   /* } */
+=======
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    width: 200px;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .card {
+    display: inline-block;
+>>>>>>> 740b2695e16cc26b235ed384e183109f4cc7c1ab
   }
 
   ol {
@@ -122,9 +237,9 @@ export default {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    padding-inline-start: 10px;
   }
-  
+
   .item_poster {
     display: block;
     width: 204px;
@@ -133,8 +248,7 @@ export default {
   img {
     border: 1px solid #d8d8d8;
     width: 70%;
-    /* margin: 40px; */
-    box-shadow: 0px .5px 1px #d8d8d8;
+    box-shadow: 0px 0.5px 1px #d8d8d8;
     display: block;
     width: 100%;
     vertical-align: top;
@@ -146,7 +260,6 @@ export default {
     height: 100%;
   }
 
-  
   .poster_movie:before {
     content: '';
     position: absolute;
@@ -158,7 +271,6 @@ export default {
     opacity: 0.2;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0, black 100%);
     border-radius: 8px;
-    
   }
 
   .rank_num {
@@ -180,7 +292,6 @@ export default {
     font-weight: 600;
     font-size: 16px;
     line-height: 21px;
-    white-space: nowrap;
   }
-  
+
 </style>
