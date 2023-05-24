@@ -6,32 +6,79 @@
           <p>지원하지 않는 브라우저입니다.</p>
       </iframe>
     </div>
+
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
-    <div class="swiper-container">
-      <div class="swiper-button-prev"></div>
-      <ol class="swiper-wrapper">
-        <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide">
-          <div class="card2 item_poster swiper-slide">
-            <div class="poster_movie">
-              <img :src="require(`@/assets/posterimg/${box.rank}.jpg`)" style="margin-left: 0px; width: 204px; margin-right: 20px;" @click="updateUrl(box.movieNm, box.rank)"/>
-              <span class="rank_num">{{ box.rank }}</span>
-            </div>
-            <span class="movieName">
-              <span v-if="box.rankOldAndNew == 'NEW'">
-                <button style="color: red;" class="btn btn-border-none btn-sm">{{ box.rankOldAndNew }}</button>
+      <div class="swiper-container">
+        <div class="swiper-button-prev"></div>
+        <ol class="swiper-wrapper">
+          <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide">
+            <div class="card2 item_poster swiper-slide">
+              <div class="poster_movie">
+                <img :src="require(`@/assets/posterimg/${box.rank}.jpg`)" style="margin-left: 0px; width: 204px; margin-right: 20px;" @click="updateUrl(box.movieNm, box.rank)"/>
+                <span class="rank_num">{{ box.rank }}</span>
+              </div>
+              <span class="movieName">
+                <span v-if="box.rankOldAndNew == 'NEW'">
+                  <button style="color: red;" class="btn btn-border-none btn-sm">{{ box.rankOldAndNew }}</button>
+                </span>
+                {{ box.movieNm }}
               </span>
-              {{ box.movieNm }}
-            </span>
-          </div>
-        </li>
-      </ol>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
-      <br><br>
-      <h2>실시간 박스오피스</h2><br>
+            </div>
+          </li>
+        </ol>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <br><br>
+      </div>
+    </div>
+
+    
+    <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
+      <br><br><br><br><h2>넷플릭스 순위</h2>
+      <div class="swiper-container">
+        <div class="swiper-button-prev"></div>
+        <ol class="swiper-wrapper">
+          <li v-for="(movie, index) in netflixData" :key="movie.title" class="swiper-slide">
+            <div class="card2 item_poster swiper-slide">
+              <div class="poster_movie">
+                <img :src="movie.poster" alt="Movie Poster" style="margin-left: 0px; width: 204px; margin-right: 20px;" @click="updateUrl(box.movieNm, box.rank)"/>
+                <span class="rank_num">{{ index + 1 }}</span>
+              </div>
+              <span class="movieName">
+                {{ movie.title }}
+              </span>
+            </div>
+          </li>
+        </ol>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <br><br>
+      </div>
+    </div>
+
+    <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
+      <br><br><br><br><h2>왓챠 순위</h2>
+      <div class="swiper-container">
+        <div class="swiper-button-prev"></div>
+        <ol class="swiper-wrapper">
+          <li v-for="(movie, index) in watchaData" :key="movie.title" class="swiper-slide">
+            <div class="card2 item_poster swiper-slide">
+              <div class="poster_movie">
+                <img :src="movie.poster" alt="Movie Poster" style="margin-left: 0px; width: 204px; margin-right: 20px;" @click="updateUrl(box.movieNm, box.rank)"/>
+                <span class="rank_num">{{ index + 1 }}</span>
+              </div>
+              <span class="movieName">
+                {{ movie.title }}
+              </span>
+            </div>
+          </li>
+        </ol>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <br><br>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -41,6 +88,9 @@ import { mapGetters } from 'vuex';
 import axios from 'axios';
 
 Swiper.use([Navigation, Pagination]);
+
+import netflixData from '@/assets/movie_ranking/netflix_list.json'
+import watchaData from '@/assets/movie_ranking/watcha_list.json'
 
 export default {
   name: 'BoxofficeDaily',
@@ -55,7 +105,11 @@ export default {
       movieNm: '가디언즈 오브 갤럭시',
       title: '',
       API_KEY: 'D2VY8455A80060QVE094',
-      updatedurl: 'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&ServiceKey=D2VY8455A80060QVE094'
+      updatedurl: 'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&ServiceKey=D2VY8455A80060QVE094',
+      // OTT 데이터
+      netflixData: netflixData,
+      watchaData: watchaData,
+
   }},
   methods: {
     updateUrl(movieNm, rank) {
@@ -104,6 +158,7 @@ export default {
             if (vodsUrls[index].querySelector('prodYear').textContent.trim() === '2023') {
               const vodUrl = vodsUrls[index].querySelector('vods').querySelector('vod').querySelector('vodUrl');
               const vodsUrl = vodUrl.textContent.trim();
+              
               this.vodsUrl = vodsUrl
               break;
             }
@@ -177,14 +232,6 @@ export default {
     transition-property: transform;
     box-sizing: content-box;
     white-space: nowrap;
-<<<<<<< HEAD
-    /* .caard {
-      display: inline-block;
-    }
-    &::-webkit-scrollbar { */
-    display: none;
-  /* } */
-=======
   }
 
   .swiper-slide {
@@ -209,7 +256,6 @@ export default {
 
   .card {
     display: inline-block;
->>>>>>> 740b2695e16cc26b235ed384e183109f4cc7c1ab
   }
 
   ol {
