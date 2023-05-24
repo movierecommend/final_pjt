@@ -1,23 +1,21 @@
-<!-- WatchaListView.vue -->
 <template>
   <div>
-    <ul>
-      <li v-for="item in watchaList" :key="item.title">
-        <img :src="item.poster" alt="Poster" />
-        <h3>{{ item.title }}</h3>
-      </li>
-    </ul>
+    <h1>Watcha 영화 순위</h1>
+    <div v-for="movie in netflixData" :key="movie.title">
+      <img :src="movie.poster" alt="Movie Poster" />
+      <h3>{{ movie.title }}</h3>
+    </div>
   </div>
 </template>
 
 <script>
-import watchaListData from './watcha_list.json';
+import watchaData from '../../assets/movie_ranking/watcha_list.json'
 
 export default {
   data() {
     return {
-      watchaList: watchaListData
-    };
-  }
-};
+      watchaData: watchaData,
+    }
+  },
+}
 </script>

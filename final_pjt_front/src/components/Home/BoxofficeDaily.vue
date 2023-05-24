@@ -15,7 +15,7 @@
       </div>
       <div style="position: relative; overflow: hidden;">
         <ol class="swiper-wrapper" style="margin-left: 0px; transform: translate3d(0px, 0px, 0px);">
-          <div class="swiper-button-prev"><</div>
+          <div class="swiper-button-prev"></div>
           <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide" style="margin-left: 0px;width: 204px;margin-right: 20px;">
             <div class="caard item_poster swiper-slide">
               <div class="poster_movie">
@@ -31,7 +31,7 @@
               </span>
             </div>
           </li>
-          <div class="swiper-button-next">></div>
+          <div class="swiper-button-next"></div>
         </ol>   
       </div>
     </div>
@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import Swiper, { Navigation, Pagination } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import Swiper, { Navigation, Pagination } from 'swiper';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
 import { mapGetters } from "vuex"
 // var mySwiper = new Swiper('.swiper-container', {
 // 	slidesPerView: 5, //슬라이드를 한번에 5개를 보여준다
@@ -50,22 +50,22 @@ import { mapGetters } from "vuex"
 // 	loop: false, //loop 를 true 로 할경우 무한반복 슬라이드 false 로 할경우 슬라이드의 끝에서 더보여지지 않음
 // });
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'vertical',
-  loop: false,
+// const swiper = new Swiper('.swiper', {
+//   // Optional parameters
+//   direction: 'vertical',
+//   loop: false,
 
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
+//   // If we need pagination
+//   pagination: {
+//     el: '.swiper-pagination',
+//   },
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+// });
 
 export default {
   name: 'BoxofficeDaily',
@@ -108,12 +108,12 @@ export default {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    .caard {
+    /* .caard {
       display: inline-block;
     }
-    &::-webkit-scrollbar {
+    &::-webkit-scrollbar { */
     display: none;
-  }
+  /* } */
   }
 
   ol {
