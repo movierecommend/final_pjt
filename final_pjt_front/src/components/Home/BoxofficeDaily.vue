@@ -33,7 +33,6 @@
       </div>
     </div>
 
-    
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
       <br><br><br><br><h2>넷플릭스 순위</h2>
       <div class="swiper-container second">
@@ -280,6 +279,13 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: 'dh';
+  src:url('../../../public/fonts/BMDOHYEON_ttf.ttf')
+}
+  h2 {
+    font-family: 'dh';
+  }
   .swiper-container {
     width: 70%;
     height: 300px;

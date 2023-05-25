@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="coloradded">
     <br>
     <h2>내가 영화 캐릭터라면?</h2>
       <div class="d-container">
-        <div v-if="!showPopup" class="d-flex" style="justify-content: center;">
+        <div class="d-flex" style="justify-content: center;">
           <div>
             <div v-for="option in optionsEI" :key="option.id">
               <label :for="option.id" @click="selectOptionEI(option)">
@@ -36,31 +36,24 @@
               <input type="radio" :id="option.id" :value="option.value" v-model="selectedValuePJ" hidden />
             </label>
           </div>
-        </div>
+          </div>
+          <button @click="findYourMBTI()" style="margin-top: 20px;">확인</button>
       </div>
-    <div>
-      <button v-if="!showPopup" @click="findYourMBTI()" style="margin-top: 20px;">확인</button>
-    </div>
   </div>
     <div>
-<<<<<<< HEAD
-      <h1 v-if="showPopup">당신은 "{{ yourMBTI }}"</h1>
-=======
-      
-      <button v-if="!showPopup" @click="findYourMBTI()">확인</button>
->>>>>>> 549620fd32d7382f8335325b39ed1d318c11b9f7
         <div> 
           <div v-if="showPopup" class="popup-overlay" @click="closePopup">
-            <div v-for="mbti in mbti_jsonData" :key="mbti.id">
-              <div v-if="mbti.fields.MBTI === yourMBTI">
-                <div id="actorcontainer">
-                  <h3>{{ mbti.fields.character }}</h3>
-                  <img v-if="!showtitle" class="result" :src="mbti.fields.image" alt="MBTI 이미지">
-                  <div class="result" v-else>{{ mbti.fields.title }}</div>
-                  <div class="result"><h4>{{ mbti.fields.title }}</h4></div>
+            <div v-if="showPopup" style="position: absolute; color: black; top: 30px;"><h2>당신의 mbti는 "{{ yourMBTI }}"!</h2></div>
+              <div v-for="mbti in mbti_jsonData" :key="mbti.id">
+                <div v-if="mbti.fields.MBTI === yourMBTI">
+                  <div id="actorcontainer">
+                    <div>{{ mbti.fields.character }}</div>
+                    <img v-if="!showtitle" class="result" :src="mbti.fields.image" alt="MBTI 이미지">
+                    <div class="result" v-else>{{ mbti.fields.title }}</div>
+                    <div class="result"><h4>{{ mbti.fields.title }}</h4></div>
+                  </div>
                 </div>
               </div>
-            </div>
           </div>
         </div> 
     </div>
@@ -99,7 +92,7 @@ export default {
         { id: 7, image: './P.png', value: 'P' },
         { id: 8, image: './J.png', value: 'J' },
       ],
-      showPopup: true,
+      showPopup: false,
       showtitle: false,
     }
   },
@@ -160,6 +153,20 @@ export default {
   src:url('../../public/fonts/BMDOHYEON_ttf.ttf')
 }
 
+.coloradded {
+  width: 80%;
+  margin-top: 80px;
+  margin-left: 150px;
+  margin-right: 40px;
+  padding: 20px;
+  background-color: rgb(219, 214, 214);
+  font-family: 'dh';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 img {
   width: 150px;
   height: 150px;
@@ -171,7 +178,6 @@ img {
   /* border: 4px solid rgb(255, 242, 65); */
   box-shadow: 0px 0.5px 1px #d8d8d8;
   display: block;
-  vertical-align: top;
   border-radius: 50%;
 
 }
@@ -201,23 +207,15 @@ button {
   grid-gap: 10px;
 }
 
-.container > div {
-  flex: 1;
-  margin-right: 10px;
-}
-
 .popup-overlay {
   position: fixed;
   /* border: 4px solid rgb(255, 242, 65); */
   /* background-color: rgb(255, 242, 65);
   border-radius: 5%; */
-  top: 35vh;
+  top: 13vh;
   left: 0;
   width: 100%;
-  height: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 50%;
   background-color: white;
   cursor: pointer;
 }

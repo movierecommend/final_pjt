@@ -1,10 +1,10 @@
 <template>
-  <div id="app">
+  <div id="app" style="background-color: #ffffff; width: 100%; height: 100vh;">
     <div>
       <div class="top">
         <div v-if="!isLoggedIn" id="wrapMini">
-          <router-link  to='/login' id="btnLogin">Login</router-link> |
-          <router-link :to="{ name: 'signup' }" id="btnLogin">Signup</router-link> |
+          <button><router-link  to='/login'>Login</router-link></button>
+          <button><router-link :to="{ name: 'signup' }">Signup</router-link></button>
         </div>
         <div v-if="isLoggedIn" id="wrapMini">
           <router-link to='/logout' id="btnLogin">Logout</router-link> |
@@ -12,11 +12,19 @@
         </div>
       </div>
     
-      <nav>
-        <router-link :to="{ name: 'HomeView' }">Home</router-link> |
-        <router-link :to="{ name: 'recommend' }">Recommendations</router-link> |
-        <router-link :to="{ name: 'fun' }">Fun</router-link> |
-        <router-link :to="{ name: 'articles' }">Community</router-link>
+      <nav class="d-flex" style="margin-bottom: 30px; justify-content: center; align-items: center;">
+        <div style="padding-right: 30px;">
+          <router-link :to="{ name: 'HomeView' }"><h3>Home</h3></router-link>
+        </div>
+        <div style="padding-right: 30px;">
+          <router-link :to="{ name: 'recommend' }"><h3>Recommendations</h3></router-link>
+        </div>
+        <div style="padding-right: 30px;">
+          <router-link :to="{ name: 'fun' }"><h3>Fun</h3></router-link>
+        </div>
+        <div style="padding-right: 30px;">
+          <router-link :to="{ name: 'articles' }"><h3>Community</h3></router-link>
+        </div>
       </nav>
     </div>
     
@@ -64,6 +72,26 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: 'dh';
+  src:url('../public/fonts/BMDOHYEON_ttf.ttf')
+}
+h3 {
+  font-family: 'dh';
+}
+
+
+button {
+    position: relative;
+  padding: 8px 16px;
+  margin: 10px;
+  font-size: 50px;
+  background-color: #df596b;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'dh';
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -118,6 +146,6 @@ div a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: rgb(236, 87, 87);
 }
 </style>
