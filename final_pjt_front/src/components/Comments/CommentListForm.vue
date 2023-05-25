@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="mt-3">
     <form @submit.prevent="onSubmit" class="comment-list-form">
       <div style="float: left; padding-right: 400px">
         <label class="form-label" style="font-family:MapoGoldenPier; float: left;" for="comment">

@@ -1,15 +1,14 @@
 <template>
-  <div>
-  <div class="container mt-3">
-    <p style="font-size:40px; text-align:left; margin-left:6px">
+  <div class="articlecontainer mt-3">
+    <p style="font-size:40px; text-align:left; margin-left:3px">
       {{ article?.pk }}번째 글
     </p>
-    <p style="font-size:40px; text-align:left; margin-left:6px">
+    <p style="font-size:40px; text-align:left; margin-left:3px">
       {{ article?.title }}
     </p>
     <hr>
-    <div class="box-content card">
-      <div class="card-body" style="text-align:left;">
+      <div class="box-content card">
+        <div class="card-body" style="text-align:left;">
           <p style="font-family: 'GmarketSansMedium'; font-size:18px;">
             {{ article?.content }}
           </p>
@@ -19,31 +18,30 @@
     <p>작성시간 : {{ article?.created_at }}</p>
     <p>수정시간 : {{ article?.updated_at }}</p>
     </div>
-  </div>
 
-  <!-- Article Edit/Delete UI -->
-  <div v-if="article?.user.username === currentUser?.username">
-    <button style="float: right; font-family:GimpoGothic" class=" mx-3 mt-3 btn btn-outline-secondary waves-effect mb-4" @click="deleteArticle({ articlePk: article.pk })">삭제</button>
-    <router-link :to="{ name: 'articleEdit', params: { articlePk: article.pk} }">
-      <button style="float: right; font-family:GimpoGothic" class="mt-3 btn btn-outline-secondary waves-effect mb-4">수정</button>
-    </router-link>
-  </div>
+    <!-- Article Edit/Delete UI -->
+    <div v-if="article?.user.username === currentUser?.username">
+      <button style="float: right; font-family:GimpoGothic" class="btn btn-outline-secondary waves-effect mb-4" @click="deleteArticle({ articlePk: article.pk })">삭제</button>
+      <router-link :to="{ name: 'articleEdit', params: { articlePk: article.pk} }">
+        <button style="float: right; font-family:GimpoGothic" class="mt-3 btn btn-outline-secondary waves-effect mb-4">수정</button>
+      </router-link>
+    </div>
 
-  <!-- Article Like UI -->
-  <div style="float: left; margin-top:15px;">
-    <button class=" btn btn-outline-danger waves-effect mb-4" @click="likeArticle({ articlePk: article.pk })">
-      좋아요 ♥ {{ like_count }}
-    </button>
-  </div>
+    <!-- Article Like UI -->
+    <div style="float: left; margin-top:15px;">
+      <button class=" btn btn-outline-danger waves-effect mb-4" @click="likeArticle({ articlePk: article.pk })">
+        좋아요 ♥ {{ like_count }}
+      </button>
+    </div>
     
-  <!-- Comment UI -->
-  <div style="margin-top:100px">
-    <hr>
-    <!-- {{ ArticleListViewVue }} -->
-      <comment-list-form></comment-list-form>
-      <br><br><br>
-      <comment-list :comments="article.comments"></comment-list>
-  </div>
+    <!-- Comment UI -->
+    <div style="margin-top:100px">
+      <hr>
+      <!-- {{ ArticleListViewVue }} -->
+        <comment-list-form></comment-list-form>
+        <br><br><br>
+        <comment-list :comments="article.comments"></comment-list>
+    </div>
 </div>
 </template>
 
@@ -76,3 +74,13 @@ export default {
   
 }
 </script>
+
+<style>
+.articlecontainer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    max-width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+</style>

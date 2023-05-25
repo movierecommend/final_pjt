@@ -1,5 +1,7 @@
 <template>
   <div>
+    <!-- <img :src="this.realposterurl" width="100%" height="150px"> -->
+
     <h2>실시간 박스오피스 {{this.rank}}위! {{ this.movieNm }}의 예고편입니다.</h2>
     <div style="background-color: black;">
       <iframe :src="this.realurl" width="900px" height="600px">
@@ -9,7 +11,7 @@
 
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
       <div class="swiper-container first">
-        <div class="swiper-button-prev"></div>
+        <!-- <div class="swiper-button-prev"></div> -->
         <ol class="swiper-wrapper">
           <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide">
             <div class="card2 item_poster swiper-slide">
@@ -26,8 +28,7 @@
             </div>
           </li>
         </ol>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
+        <!-- <div class="swiper-button-next"></div> -->
         <br><br>
       </div>
     </div>
@@ -36,12 +37,12 @@
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
       <br><br><br><br><h2>넷플릭스 순위</h2>
       <div class="swiper-container second">
-        <div class="swiper-button-prev"></div>
+        <!-- <div class="swiper-button-prev"></div> -->
         <ol class="swiper-wrapper">
           <li v-for="(movie, index) in netflixData" :key="movie.title" class="swiper-slide">
             <div class="card2 item_poster swiper-slide">
               <div class="poster_movie">
-                <img :src="movie.poster" alt="Movie Poster" style="margin-left: 0px; width: 204px; margin-right: 20px;" @click="updateUrl(box.movieNm, box.rank)"/>
+                <img :src="movie.poster" alt="Movie Poster" style="margin-left: 0px; width: 204px; margin-right: 20px;" @click="[updateUrl(box.movieNm, box.rank)]"/>
                 <span class="rank_num">{{ index + 1 }}</span>
               </div>
               <span class="movieName">
@@ -50,8 +51,7 @@
             </div>
           </li>
         </ol>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
+        <!-- <div class="swiper-button-next"></div> -->
         <br><br>
       </div>
     </div>
@@ -59,7 +59,7 @@
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
       <br><br><br><br><h2>왓챠 순위</h2>
       <div class="swiper-container third">
-        <div class="swiper-button-prev"></div>
+        <!-- <div class="swiper-button-prev"></div> -->
         <ol class="swiper-wrapper">
           <li v-for="(movie, index) in watchaData" :key="movie.title" class="swiper-slide">
             <div class="card2 item_poster swiper-slide">
@@ -73,8 +73,7 @@
             </div>
           </li>
         </ol>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
+        <!-- <div class="swiper-button-next"></div> -->
         <br><br>
       </div>
     </div>
@@ -82,13 +81,13 @@
 </template>
 
 <script>
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import { mapGetters } from 'vuex';
 import axios from 'axios';
 import Vue from 'vue';
 
-Swiper.use([Navigation, Pagination]);
+Swiper.use([Navigation]);
 
 import netflixData from '@/assets/movie_ranking/netflix_list.json'
 import watchaData from '@/assets/movie_ranking/watcha_list.json'
@@ -103,10 +102,11 @@ export default {
       realurl: '',
       rank: 1,
       originalurl:'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2',
-      movieNm: '가디언즈 오브 갤럭시',
+      movieNm: '분노의 질주: 라이드 오어 다이',
       title: '',
       API_KEY: 'D2VY8455A80060QVE094',
       updatedurl: 'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&ServiceKey=D2VY8455A80060QVE094',
+      updatedposterurl: '',
       // OTT 데이터
       netflixData: netflixData,
       watchaData: watchaData,
@@ -118,31 +118,52 @@ export default {
       this.movieNm = movieNm
       this.updatedurl = new URL(this.originalurl + `&title=${this.movieNm}` + `&ServiceKey=${this.API_KEY}`)['href']
       this.fetchTrailerUrl()
+      this.fetchPosterImg()
     },
-    // fetchPosterImg() {
-    //   fetch(
-    //     this.updatedurl
-    //   )
-    //   .then((response) => response.text())
-    //   .then((data) => {
-    //       const parser1 = new DOMParser();
-    //       const xmlDoc1 = parser1.parseFromString(data, 'text/xml');
-    //       const resultNode1 = xmlDoc1.querySelector('Result');
-    //       const vodsUrls1 = resultNode1.getElementsByTagName('Row');
+    fetchPosterImg() {
+      fetch(
+        this.updatedurl
+      )
+      .then((response) => response.text())
+      .then((data) => {
+          var parser = new DOMParser();
+          var xmlDoc = parser.parseFromString(data, 'text/xml');
+          var resultNode = xmlDoc.querySelector('Result');
+          var vodsUrls = resultNode.getElementsByTagName('Row');
 
-    //       for (var index = 0; index < vodsUrls1.length; index++) {
-    //         if (vodsUrls1[index].querySelector('prodYear').textContent.trim() === '2023') {
-    //           const posterUrls = vodsUrls1[index].querySelector('posters')
-    //           const posterUrl = posterUrls.textContent.trim().split(',')[0];
-    //           this.posterUrl = posterUrl
-    //           break;
-    //         }
-    //         // const posterUrl2 = this.posterUrl
-    //     }})
-    //     .catch((error) => {
-    //       console.error('Error fetching XML data:', error);
-    //     });
-    // },
+          for (var index = 0; index < vodsUrls.length; index++) {
+            if (vodsUrls[index].querySelector('prodYear').textContent.trim() === '2023') {
+              const posterUrls = vodsUrls[index].querySelector('posters')
+              const posterUrl = posterUrls.textContent.trim().split(',')[0];
+              this.posterUrl = posterUrl.split('%7')[0]
+              console.log(posterUrl)
+              break;
+            }
+            const posterUrl2 = this.posterUrl
+            axios
+            .get(posterUrl2)
+            .then((response) => {
+              var html = response.data;
+              var parser = new DOMParser();
+              var doc = parser.parseFromString(html, 'text/html');
+              var anchorMovie = doc.getElementById('anchorMovieMovie');
+              var vodElements = anchorMovie.getElementsByTagName('a');
+              var beforeurl = vodElements[0].getAttribute('href');
+              var cdataStart = "javascript:fcnPlay('";
+              var cdataEnd = "');";
+              var url = beforeurl.substring(cdataStart.length, beforeurl.length - cdataEnd.length);
+              var updatedposterurl = 'https://www.kmdb.or.kr/trailer/trailerPlayPop?pFileNm=' + url;
+              this.updatedposterurl = updatedposterurl;
+              console.log(this.updatedposterurl);
+            })
+            .catch((error) => {
+              console.error('Error fetching trailer URL:', error);
+            });
+        }})
+        .catch((error) => {
+          console.error('Error fetching XML data:', error);
+        });
+    },
     
     fetchTrailerUrl() {
       fetch(
@@ -150,16 +171,15 @@ export default {
       )
         .then((response) => response.text())
         .then((data) => {
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(data, 'text/xml');
-          const resultNode = xmlDoc.querySelector('Result');
-          const vodsUrls = resultNode.getElementsByTagName('Row');
+          var parser = new DOMParser();
+          var xmlDoc = parser.parseFromString(data, 'text/xml');
+          var resultNode = xmlDoc.querySelector('Result');
+          var vodsUrls = resultNode.getElementsByTagName('Row');
       
           for (var index = 0; index < vodsUrls.length; index++) {
             if (vodsUrls[index].querySelector('prodYear').textContent.trim() === '2023') {
               const vodUrl = vodsUrls[index].querySelector('vods').querySelector('vod').querySelector('vodUrl');
               const vodsUrl = vodUrl.textContent.trim();
-              
               this.vodsUrl = vodsUrl
               break;
             }
@@ -168,16 +188,16 @@ export default {
           axios
             .get(vodsUrl2)
             .then((response) => {
-              const html = response.data;
-              const parser = new DOMParser();
-              const doc = parser.parseFromString(html, 'text/html');
-              const anchorMovie = doc.getElementById('anchorMovieMovie');
-              const vodElements = anchorMovie.getElementsByTagName('a');
-              const beforeurl = vodElements[0].getAttribute('href');
-              const cdataStart = "javascript:fcnPlay('";
-              const cdataEnd = "');";
-              const url = beforeurl.substring(cdataStart.length, beforeurl.length - cdataEnd.length);
-              const realurl = 'https://www.kmdb.or.kr/trailer/trailerPlayPop?pFileNm=' + url;
+              var html = response.data;
+              var parser = new DOMParser();
+              var doc = parser.parseFromString(html, 'text/html');
+              var anchorMovie = doc.getElementById('anchorMovieMovie');
+              var vodElements = anchorMovie.getElementsByTagName('a');
+              var beforeurl = vodElements[0].getAttribute('href');
+              var cdataStart = "javascript:fcnPlay('";
+              var cdataEnd = "');";
+              var url = beforeurl.substring(cdataStart.length, beforeurl.length - cdataEnd.length);
+              var realurl = 'https://www.kmdb.or.kr/trailer/trailerPlayPop?pFileNm=' + url;
               this.realurl = realurl;
               // console.log(this.realurl);
             })
@@ -327,6 +347,8 @@ export default {
     width: 100%;
     vertical-align: top;
     border-radius: 8px;
+    width: 185px;
+    height: 300px;
   }
 
   .poster_movie {

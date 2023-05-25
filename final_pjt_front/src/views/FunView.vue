@@ -2,7 +2,7 @@
   <div>
     <br>
     <h2>내가 영화 캐릭터라면?</h2>
-    <div class="container">
+    <div v-if="!showPopup" class="container">
       <div v-for="option in optionsEI" :key="option.id">
         <label :for="option.id" @click="selectOptionEI(option)">
           <img :src="option.image" :class="{'checked': selectedOptionEI === option}" />
@@ -32,15 +32,28 @@
 
     <div>
       
+<<<<<<< HEAD
       <button @click="findYourMBTI()">확인</button>
       <div>
         <div v-for="mbti in mbti_jsonData" :key="mbti.id">
           <div v-if="mbti.fields.MBTI === yourMBTI">
             {{ mbti.fields.character }}
             <img class="result" :src="mbti.fields.image" alt="MBTI 이미지">
+=======
+      <button v-if="!showPopup" @click="findYourMBTI()">확인</button>
+        <div> 
+          <div v-if="showPopup" class="popup-overlay" @click="closePopup">
+            <div v-for="mbti in mbti_jsonData" :key="mbti.id">
+              <div v-if="mbti.fields.MBTI === yourMBTI">
+                <div id="actorcontainer">
+                  <p >{{ mbti.fields.character }}</p>
+                  <img class="result" :src="mbti.fields.image" alt="MBTI 이미지">
+                </div>
+              </div>
+            </div>
+>>>>>>> 9c8e4967a4cd6cf2e11059f7facac9c2cc9c80c4
           </div>
-        </div>
-      </div>
+        </div> 
     </div>
   </div>
 </template>
@@ -77,6 +90,7 @@ export default {
         { id: 7, image: './P.png', value: 'P' },
         { id: 8, image: './J.png', value: 'J' },
       ],
+      showPopup: false,
     }
   },
   methods: {
@@ -84,11 +98,14 @@ export default {
       axios.get('/mbti.json')
         .then(response => {
           this.mbti_jsonData = response.data
-          console.log(this.mbti_jsonData)
+          // console.log(this.mbti_jsonData)
         })
         .catch(error => {
           console.error(error)
         })
+    },
+    closePopup() {
+      this.showPopup = false;
     },
     filterByMBTI() {
       const filteredCharacters = this.mbti_jsonData.filter(mbti => mbti.fields.MBTI === this.inputMBTI)
@@ -113,7 +130,8 @@ export default {
         this.selectedValuePJ = option.value
     },
     findYourMBTI() {
-      this.yourMBTI = this.selectedValueEI + this.selectedValueNS + this.selectedValueTF + this.selectedValuePJ
+      this.yourMBTI = this.selectedValueEI + this.selectedValueNS + this.selectedValueTF + this.selectedValuePJ      
+      this.showPopup = !this.showPopup
     }
   },
   mounted() {
@@ -132,13 +150,11 @@ img {
 .result {
   width: 150px;
   height: 150px;
-  border: 1px solid #d8d8d8;
-  /* width: 70%; */
+  /* border: 4px solid rgb(255, 242, 65); */
   box-shadow: 0px 0.5px 1px #d8d8d8;
   display: block;
-  /* width: 100%; */
   vertical-align: top;
-  border-radius: 8px;
+  border-radius: 50%;
 
 }
 .checked {
@@ -157,4 +173,21 @@ img {
   flex: 1;
   margin-right: 10px;
 }
+
+.popup-overlay {
+  position: fixed;
+  /* border: 4px solid rgb(255, 242, 65); */
+  /* background-color: rgb(255, 242, 65);
+  border-radius: 5%; */
+  top: 35vh;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+
 </style>
