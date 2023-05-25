@@ -1,10 +1,15 @@
 <template>
   <div id="app">
     <div class="top">
-      <div id="wrapMini">
-        <router-link to='/login' id="btnLogin">Login</router-link> |
+      <div v-if="!isLoggedIn" id="wrapMini">
+        <router-link  to='/login' id="btnLogin">Login</router-link> |
         <router-link :to="{ name: 'signup' }" id="btnLogin">Signup</router-link> |
-        <router-link v-if="isLoggedIn" :to="{ name: 'mypage', params: {'username':currentUser} }" id="btnLogin">Mypage</router-link>
+      </div>
+      <div v-if="isLoggedIn" id="wrapMini">
+        <router-link to='/logout' id="btnLogin">Logout</router-link> |
+        <router-link :to="{ name: 'mypage', params: {'username':currentUser.username} }" id="btnLogin">Mypage</router-link>
+
+
       </div>
     </div>
     

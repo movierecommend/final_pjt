@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import ArticleForm from '@/components/Article/ArticleForm.vue'
+import ArticleForm from '@/components/Articles/ArticleForm.vue'
 
 export default {
   name: 'CreateView',

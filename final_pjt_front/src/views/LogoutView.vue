@@ -12,10 +12,10 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'LogoutView',
   methods: {
-    ...mapActions(['logout'])
+    ...mapActions('accounts/', ['logout'])
   },
   computed: {
-    ...mapGetters(['isLoggedIn'])
+    ...mapGetters('accounts/', ['isLoggedIn'])
   },
   created() {
     if (this.isLoggedIn) {

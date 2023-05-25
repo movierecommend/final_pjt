@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@vue/cli": "^5.0.8"
+    "@vue/cli": "^5.0.8",
+    "spectre.css": "^0.5.9"
   }
 }

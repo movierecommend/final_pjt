@@ -8,7 +8,7 @@
     </div>
 
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
-      <div class="swiper-container">
+      <div class="swiper-container first">
         <div class="swiper-button-prev"></div>
         <ol class="swiper-wrapper">
           <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide">
@@ -35,7 +35,7 @@
     
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
       <br><br><br><br><h2>넷플릭스 순위</h2>
-      <div class="swiper-container">
+      <div class="swiper-container second">
         <div class="swiper-button-prev"></div>
         <ol class="swiper-wrapper">
           <li v-for="(movie, index) in netflixData" :key="movie.title" class="swiper-slide">
@@ -58,7 +58,7 @@
 
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
       <br><br><br><br><h2>왓챠 순위</h2>
-      <div class="swiper-container">
+      <div class="swiper-container third">
         <div class="swiper-button-prev"></div>
         <ol class="swiper-wrapper">
           <li v-for="(movie, index) in watchaData" :key="movie.title" class="swiper-slide">
@@ -86,6 +86,7 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import { mapGetters } from 'vuex';
 import axios from 'axios';
+import Vue from 'vue';
 
 Swiper.use([Navigation, Pagination]);
 
@@ -190,7 +191,7 @@ export default {
     },
   },
   mounted() {
-    new Swiper('.swiper-container', {
+    var swiper = new Swiper('.first', {
       direction: 'horizontal',
       slidesPerView: 5,
       spaceBetween: 15,
@@ -204,11 +205,57 @@ export default {
       },
       navigation: {
         nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        prevEl: '.swiper-button-prev'
       },
+      observer: true,
+      observeParents: true,
+    });
+
+    var swiper1 = new Swiper('.second', {
+      direction: 'horizontal',
+      slidesPerView: 5,
+      spaceBetween: 15,
+      debugger: true,
+      mousewheel: false,
+      loop: false,
+      centeredSlides: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      observer: true,
+      observeParents: true,
+    });
+
+    var swiper2 = new Swiper('.third', {
+      direction: 'horizontal',
+      slidesPerView: 5,
+      spaceBetween: 15,
+      debugger: true,
+      mousewheel: false,
+      loop: false,
+      centeredSlides: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      observer: true,
+      observeParents: true,
     });
     this.fetchTrailerUrl();
-  },
+    Vue.use(swiper)
+    Vue.use(swiper1)
+    Vue.use(swiper2)
+}
+
 };
 </script>
 
@@ -320,9 +367,17 @@ export default {
     font-size: 16px;
     line-height: 21px;
   }
-  .swiper-button-next,
-  .swiper-button-prev {
-    position: absolute;
-    top: 70%;
-  }
+  .swiper-button-next .swiper-button-prev{
+    position: relative;
+    top: var(--swiper-navigation-top-offset, 50%);
+    width: calc(var(--swiper-navigation-size) / 44 * 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  }  
 </style>

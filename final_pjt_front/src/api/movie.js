@@ -40,24 +40,4 @@ export default {
       url: `movies/${movie_name}`,
     })
   },
-  create_rating(moviePk, data) {
-    return api({
-      method: "post",
-      url: `movies/${moviePk}/rating/`,
-      data: data
-    })
-  },
-  update_rating(moviePk, ratingPk, data) {
-    return api({
-      method: "post",
-      url: `movies/${moviePk}/rating/${ratingPk}`,
-      data: data,
-    })
-  },
-  delete_rating(moviePk, ratingPk) {
-    return api({
-      method: "delete",
-      url: `movies/${moviePk}/rating/${ratingPk}`,
-    })
-  },
 }

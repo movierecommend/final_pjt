@@ -2,7 +2,7 @@
   <div>
   <div class="container mt-3">
     <p style="font-size:40px; text-align:left; margin-left:6px">
-      {{ article?.id }}번째 글
+      {{ article?.pk }}번째 글
     </p>
     <p style="font-size:40px; text-align:left; margin-left:6px">
       {{ article?.title }}
@@ -22,11 +22,11 @@
   </div>
 
   <!-- Article Edit/Delete UI -->
-  <div v-if="isAuthor">
-    <router-link :to="{ name: 'articleEdit', params: { articlePk: article.id} }">
+  <div v-if="article?.user.username === currentUser?.username">
+    <button style="float: right; font-family:GimpoGothic" class=" mx-3 mt-3 btn btn-outline-secondary waves-effect mb-4" @click="deleteArticle({ articlePk: article.pk })">삭제</button>
+    <router-link :to="{ name: 'articleEdit', params: { articlePk: article.pk} }">
       <button style="float: right; font-family:GimpoGothic" class="mt-3 btn btn-outline-secondary waves-effect mb-4">수정</button>
     </router-link>
-    <button style="float: right; font-family:GimpoGothic" class=" mx-3 mt-3 btn btn-outline-secondary waves-effect mb-4" @click="deleteArticle({ articlePk: article.pk })">삭제</button>
   </div>
 
   <!-- Article Like UI -->
@@ -39,25 +39,30 @@
   <!-- Comment UI -->
   <div style="margin-top:100px">
     <hr>
-    <comment-list :comments="article.comments"></comment-list>
+    <!-- {{ ArticleListViewVue }} -->
+      <comment-list-form></comment-list-form>
+      <br><br><br>
+      <comment-list :comments="article.comments"></comment-list>
   </div>
 </div>
 </template>
 
 <script>
 import CommentList from '@/components/Comments/CommentList.vue'
+import CommentListForm from '@/components/Comments/CommentListForm.vue'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'ArticleDetailView',
-  components: { CommentList },
+  components: { CommentList , CommentListForm},
   data() {
     return {
       articlePk: ''
     }
   },
   computed: {
-    ...mapGetters('articles/', ['article', 'currentUser', 'isAuthor']),
+    ...mapGetters('articles/', ['article']),
+    ...mapGetters('accounts/', ['currentUser']),
     like_count() {
       return this.article.like_users?.length
     }},
