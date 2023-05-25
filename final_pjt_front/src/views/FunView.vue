@@ -2,7 +2,7 @@
   <div>
     <br>
     <h2>내가 영화 캐릭터라면?</h2>
-    <div v-if="!showPopup" class="container">
+    <div v-if="!showPopup" class="container" style="flex-wrap: nowrap;">
       <div v-for="option in optionsEI" :key="option.id">
         <label :for="option.id" @click="selectOptionEI(option)">
           <img :src="option.image" :class="{'checked': selectedOptionEI === option}" />
