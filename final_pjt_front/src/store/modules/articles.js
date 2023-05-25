@@ -7,7 +7,6 @@ export default {
   state: {
     articles: [],
     article: { title: "", content: "" },
-    token: null,
   },
 
   getters: {
@@ -40,7 +39,7 @@ export default {
           commit("SET_ARTICLE", res.data)
         })
         .catch((err) => {
-          if (err.response.status === 404) {
+          if (err.response === 404) {
             router.push({ name: "NotFound404" });
           }
         })

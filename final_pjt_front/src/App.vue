@@ -1,26 +1,26 @@
 <template>
   <div id="app">
-    <div class="top">
-      <div v-if="!isLoggedIn" id="wrapMini">
-        <router-link  to='/login' id="btnLogin">Login</router-link> |
-        <router-link :to="{ name: 'signup' }" id="btnLogin">Signup</router-link> |
+    <div>
+      <div class="top">
+        <div v-if="!isLoggedIn" id="wrapMini">
+          <router-link  to='/login' id="btnLogin">Login</router-link> |
+          <router-link :to="{ name: 'signup' }" id="btnLogin">Signup</router-link> |
+        </div>
+        <div v-if="isLoggedIn" id="wrapMini">
+          <router-link to='/logout' id="btnLogin">Logout</router-link> |
+          <router-link :to="{ name: 'mypage', params: {'username':currentUser.username} }" id="btnLogin">Mypage</router-link>
+        </div>
       </div>
-      <div v-if="isLoggedIn" id="wrapMini">
-        <router-link to='/logout' id="btnLogin">Logout</router-link> |
-        <router-link :to="{ name: 'mypage', params: {'username':currentUser.username} }" id="btnLogin">Mypage</router-link>
-
-
-      </div>
+    
+      <nav>
+        <router-link :to="{ name: 'HomeView' }">Home</router-link> |
+        <router-link :to="{ name: 'recommend' }">Recommendations</router-link> |
+        <router-link :to="{ name: 'fun' }">Fun</router-link> |
+        <router-link :to="{ name: 'articles' }">Community</router-link>
+      </nav>
     </div>
     
-    <nav>
-      <router-link :to="{ name: 'HomeView' }">Home</router-link> |
-      <router-link :to="{ name: 'recommend' }">Recommendations</router-link> |
-      <router-link :to="{ name: 'fun' }">Fun</router-link> |
-      <router-link :to="{ name: 'articles' }">Community</router-link>
-    </nav>
     <router-view/>
-    
   </div>
   
 </template>
@@ -55,13 +55,9 @@ export default {
     fetchBoxoffice () {
       this.$store.dispatch('home/fetchBoxoffice')
     },
-    // fetchActors () {
-    //   this.$store.dispatch('movies/fetchActors')
-    // },
   },
   created () {
     this.fetchBoxoffice()
-    // this.fetchActors()
     this.fetchCurrentUser()
   },
 }
@@ -98,7 +94,6 @@ export default {
   text-align: center;
   letter-spacing: -1px;
 }
-
 
 .top {
   position: relative;
