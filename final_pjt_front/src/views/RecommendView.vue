@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Recommendation Page</h1>
+    <!-- <h1>Recommendation Page</h1> -->
 
         <RecommendSelectView />
         <!-- <TestListView /> -->
