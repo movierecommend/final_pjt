@@ -10,7 +10,11 @@
         </div>
         <div class="answer-container" v-else>
           <button v-for="(choice, i) in currentQuestion.choices" :key="i" @click="selectChoice(choice, i)" :class="{ 'selected': selectedChoice === choice }" class="button-option">
+<<<<<<< HEAD
             {{ choice }}
+=======
+            <!-- {{ choice }} -->
+>>>>>>> 549620fd32d7382f8335325b39ed1d318c11b9f7
             <!-- <span v-if="selectedChoice === choice" class="selected-choice">{{ selectedChoice }}</span> -->
           </button>
           
@@ -237,13 +241,23 @@ video {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 549620fd32d7382f8335325b39ed1d318c11b9f7
   font-family: 'dh';
 }
 .button-option.selected {
   background-color: #7a7070;
 }
+<<<<<<< HEAD
 
+=======
+/* .selected {
+  background-color: #7a7070;
+  color: #9e8b8b;
+} */
+>>>>>>> 549620fd32d7382f8335325b39ed1d318c11b9f7
 .selected-choice {
   font-size: 16px;
   font-weight: bold;
@@ -258,7 +272,10 @@ video {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 549620fd32d7382f8335325b39ed1d318c11b9f7
   font-family: 'dh';
 }
 .button-findout {
@@ -269,7 +286,10 @@ video {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 549620fd32d7382f8335325b39ed1d318c11b9f7
   font-family: 'dh';
 }
 
@@ -295,7 +315,10 @@ h4 {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 549620fd32d7382f8335325b39ed1d318c11b9f7
   font-family: 'dh';
 }
 
@@ -303,7 +326,10 @@ h4 {
   background-color: white;
   padding: 20px;
   text-align: center;
+<<<<<<< HEAD
   
+=======
+>>>>>>> 549620fd32d7382f8335325b39ed1d318c11b9f7
   font-family: 'dh';
 }
 

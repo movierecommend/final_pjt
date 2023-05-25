@@ -43,7 +43,12 @@
     </div>
   </div>
     <div>
+<<<<<<< HEAD
       <h1 v-if="showPopup">당신은 "{{ yourMBTI }}"</h1>
+=======
+      
+      <button v-if="!showPopup" @click="findYourMBTI()">확인</button>
+>>>>>>> 549620fd32d7382f8335325b39ed1d318c11b9f7
         <div> 
           <div v-if="showPopup" class="popup-overlay" @click="closePopup">
             <div v-for="mbti in mbti_jsonData" :key="mbti.id">
