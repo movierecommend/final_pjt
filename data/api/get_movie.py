@@ -31,7 +31,7 @@ def movie_genres(movie_id):
     # return data['genres']
     return [item['name'] for item in data['genres']]
 
-# top_rated 영화 60개(20개 * 3페이지)
+# top_rated 영화 (20개 * 6페이지)
 def get_top():
 
     BASE_URL = 'https://api.themoviedb.org/3'
@@ -46,15 +46,20 @@ def get_top():
         res = requests.get(BASE_URL + path, params=params)
         data = res.json()
         result = data['results']
-        
+
+        # print(result)
         for r in result:
-            top_dict[r['id']] = r['title']
+            top_dict["title"] = r['title']
+            top_dict["poster_path"] = r['poster_path']
+            top_dict["overview"] = r['overview']
+            print(top_dict)
     return top_dict
     
+# get_top()
 # print(get_top())
 
 
-#  popular 영화 60개(20개 * 3페이지)
+#  popular 영화 (20개 * 5페이지)
 def get_pop():
 
     BASE_URL = 'https://api.themoviedb.org/3'
@@ -71,10 +76,13 @@ def get_pop():
         result = data['results']
         
         for r in result:
-            pop_dict[r['id']] = r['title']
+            pop_dict["title"] = r['title']
+            pop_dict["poster_path"] = r['poster_path']
+            pop_dict["overview"] = r['overview']
+            print(pop_dict)
     return pop_dict
     
-# print(get_pop())
+print(get_pop())
 
 
 # 영화 id호 해당 영화 키워드 불러오기 (키워드가 10개 이상인 영화만)
@@ -90,16 +98,16 @@ def get_keywords(movie_id):
     data = response.json()
     return data["keywords"]
 
-for key in get_top().keys():
-    if len(get_keywords(key)) >= 10:
-        keywords =  [i for i in movie_genres(key)]+[item['name'] for item in get_keywords(key)]
-        movie_words_top = {movie_title(key): keywords}
-        print(movie_words_top)
+# for key in get_top().keys():
+#     if len(get_keywords(key)) >= 10:
+#         keywords =  [i for i in movie_genres(key)]+[item['name'] for item in get_keywords(key)]
+#         movie_words_top = {movie_title(key): keywords}
+#         print(movie_words_top)
 
-for key in get_pop().keys():
-    if len(get_keywords(key)) >= 10:
-        keywords = {movie_title(key): [i for i in movie_genres(key)]+[item['name'] for item in get_keywords(key)]}
-        movie_words_pop = {movie_title(key): keywords}
-        print(movie_words_pop)
+# for key in get_pop().keys():
+#     if len(get_keywords(key)) >= 10:
+#         keywords = {movie_title(key): [i for i in movie_genres(key)]+[item['name'] for item in get_keywords(key)]}
+#         movie_words_pop = {movie_title(key): keywords}
+#         print(movie_words_pop)
 
 

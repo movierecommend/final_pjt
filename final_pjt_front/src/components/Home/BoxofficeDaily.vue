@@ -1,34 +1,6 @@
 <template>
   <div>
     <h2>실시간 박스오피스 {{this.rank}}위! {{ this.movieNm }}의 예고편입니다.</h2>
-<<<<<<< HEAD
-    <iframe :src="this.realurl" width="900px" height="600px">
-        <p>지원하지 않는 브라우저입니다.</p>
-    </iframe>
-    <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
-    <div class="swiper-container">
-      <div class="swiper-button-prev"></div>
-      <ol class="swiper-wrapper">
-        <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide">
-          <div class="card2 item_poster swiper-slide">
-            <div class="poster_movie">
-              <img :src="require(`@/assets/posterimg/${box.rank}.jpg`)" style="margin-left: 0px; width: 204px; margin-right: 20px;" @click="updateUrl(box.movieNm, box.rank)"/>
-              <span class="rank_num">{{ box.rank }}</span>
-            </div>
-            <span class="movieName">
-              <span v-if="box.rankOldAndNew == 'NEW'">
-                <button style="color: red;" class="btn btn-border-none btn-sm">{{ box.rankOldAndNew }}</button>
-              </span>
-              {{ box.movieNm }}
-            </span>
-          </div>
-        </li>
-      </ol>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
-      <br><br>
-      <h2>실시간 박스오피스</h2><br>
-=======
     <div style="background-color: black;">
       <iframe :src="this.realurl" width="900px" height="600px">
           <p>지원하지 않는 브라우저입니다.</p>
@@ -105,7 +77,6 @@
         <div class="swiper-button-next"></div>
         <br><br>
       </div>
->>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
     </div>
   </div>
 </template>
@@ -117,12 +88,9 @@ import { mapGetters } from 'vuex';
 import axios from 'axios';
 
 Swiper.use([Navigation, Pagination]);
-<<<<<<< HEAD
-=======
 
 import netflixData from '@/assets/movie_ranking/netflix_list.json'
 import watchaData from '@/assets/movie_ranking/watcha_list.json'
->>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
 
 export default {
   name: 'BoxofficeDaily',
@@ -137,15 +105,11 @@ export default {
       movieNm: '가디언즈 오브 갤럭시',
       title: '',
       API_KEY: 'D2VY8455A80060QVE094',
-<<<<<<< HEAD
-      updatedurl: 'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&ServiceKey=D2VY8455A80060QVE094'
-=======
       updatedurl: 'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&ServiceKey=D2VY8455A80060QVE094',
       // OTT 데이터
       netflixData: netflixData,
       watchaData: watchaData,
 
->>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
   }},
   methods: {
     updateUrl(movieNm, rank) {
@@ -194,10 +158,7 @@ export default {
             if (vodsUrls[index].querySelector('prodYear').textContent.trim() === '2023') {
               const vodUrl = vodsUrls[index].querySelector('vods').querySelector('vod').querySelector('vodUrl');
               const vodsUrl = vodUrl.textContent.trim();
-<<<<<<< HEAD
-=======
               
->>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
               this.vodsUrl = vodsUrl
               break;
             }
