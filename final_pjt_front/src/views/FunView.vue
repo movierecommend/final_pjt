@@ -24,7 +24,7 @@
     </div>
     <div v-for="option in optionsPJ" :key="option.id">
         <label :for="option.id" @click="selectOptionPJ(option)">
-          <img :src="option.image" :class="{'checked': selectedOptionPJ === option}" />
+          <img style="width: 204px;" :src="option.image" :class="{'checked': selectedOptionPJ === option}" />
         <input type="radio" :id="option.id" :value="option.value" v-model="selectedValuePJ" hidden />
       </label>
     </div>
@@ -37,7 +37,7 @@
         <div v-for="mbti in mbti_jsonData" :key="mbti.id">
           <div v-if="mbti.fields.MBTI === yourMBTI">
             {{ mbti.fields.character }}
-            <img :src="mbti.fields.image" alt="MBTI 이미지">
+            <img class="result" :src="mbti.fields.image" alt="MBTI 이미지">
           </div>
         </div>
       </div>
@@ -127,6 +127,19 @@ export default {
 img {
   width: 150px;
   height: 150px;
+}
+
+.result {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #d8d8d8;
+  /* width: 70%; */
+  box-shadow: 0px 0.5px 1px #d8d8d8;
+  display: block;
+  /* width: 100%; */
+  vertical-align: top;
+  border-radius: 8px;
+
 }
 .checked {
   border: 4px solid rgb(255, 242, 65);
