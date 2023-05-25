@@ -13,9 +13,7 @@ export default {
   getters: {
     articles: (state) => state.articles,
     article: (state) => state.article,
-    isAuthor: (state, getters) => {
-      return state.article.user?.username === getters.currentUser?.username
-    },
+
   },
 
   mutations: {
@@ -93,6 +91,15 @@ export default {
           commit("SET_ARTICLE", res.data);
         })
         .catch((err) => console.error(err.response))
+    },
+
+    fetchComments({ commit }) {
+      article
+        .all()
+        .then((res) => {
+          commit("SET_ARTICLES", res.data);
+        })
+        .catch((err) => console.error(err.response));
     },
 
     createComment({ commit }, { articlePk, content }) {

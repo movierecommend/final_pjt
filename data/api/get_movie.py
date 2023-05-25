@@ -77,7 +77,7 @@ def get_pop():
 # print(get_pop())
 
 
-# 영화 id호 해당 영화 키워드 불러오기 (키워드가 10개 이상인 영화만)
+# 영화 id로 해당 영화 키워드 불러오기 (키워드가 10개 이상인 영화만)
 def get_keywords(movie_id):
 
     BASE_URL = f"https://api.themoviedb.org/3/movie/{movie_id}/keywords"

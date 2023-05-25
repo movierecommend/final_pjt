@@ -14,6 +14,7 @@ import SignupView from '@/views/SignupView'
 import LoginView from '@/views/LoginView'
 import LogoutView from '@/views/LogoutView'
 import NotFound404 from '@/views/NotFound404'
+import ProfileView from '@/views/ProfileView'
 
 Vue.use(VueRouter)
 
@@ -81,6 +82,11 @@ const routes = [
     path: '/mypage/:username',
     name: 'mypage',
     component: MypageView,
+  },
+  {
+    path: '/profile/:username',
+    name: 'profile',
+    component: ProfileView,
   },
   {
     path: '/404',

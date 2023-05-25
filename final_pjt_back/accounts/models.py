@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser 
-
-# Create your models here.
+from movies.models import Movie
+from articles.models import Article
 
 class User(AbstractUser):
-    pass
+    like_movies = models.ManyToManyField(Movie, related_name='liked_by', blank=True)

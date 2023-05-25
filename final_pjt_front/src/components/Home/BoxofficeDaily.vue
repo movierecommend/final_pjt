@@ -1,34 +1,6 @@
 <template>
   <div>
     <h2>실시간 박스오피스 {{this.rank}}위! {{ this.movieNm }}의 예고편입니다.</h2>
-<<<<<<< HEAD
-    <iframe :src="this.realurl" width="900px" height="600px">
-        <p>지원하지 않는 브라우저입니다.</p>
-    </iframe>
-    <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
-    <div class="swiper-container">
-      <div class="swiper-button-prev"></div>
-      <ol class="swiper-wrapper">
-        <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide">
-          <div class="card2 item_poster swiper-slide">
-            <div class="poster_movie">
-              <img :src="require(`@/assets/posterimg/${box.rank}.jpg`)" style="margin-left: 0px; width: 204px; margin-right: 20px;" @click="updateUrl(box.movieNm, box.rank)"/>
-              <span class="rank_num">{{ box.rank }}</span>
-            </div>
-            <span class="movieName">
-              <span v-if="box.rankOldAndNew == 'NEW'">
-                <button style="color: red;" class="btn btn-border-none btn-sm">{{ box.rankOldAndNew }}</button>
-              </span>
-              {{ box.movieNm }}
-            </span>
-          </div>
-        </li>
-      </ol>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
-      <br><br>
-      <h2>실시간 박스오피스</h2><br>
-=======
     <div style="background-color: black;">
       <iframe :src="this.realurl" width="900px" height="600px">
           <p>지원하지 않는 브라우저입니다.</p>
@@ -36,7 +8,7 @@
     </div>
 
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
-      <div class="swiper-container">
+      <div class="swiper-container first">
         <div class="swiper-button-prev"></div>
         <ol class="swiper-wrapper">
           <li v-for="box in boxoffice" :key="box.rank" class="swiper-slide">
@@ -63,7 +35,7 @@
     
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
       <br><br><br><br><h2>넷플릭스 순위</h2>
-      <div class="swiper-container">
+      <div class="swiper-container second">
         <div class="swiper-button-prev"></div>
         <ol class="swiper-wrapper">
           <li v-for="(movie, index) in netflixData" :key="movie.title" class="swiper-slide">
@@ -86,7 +58,7 @@
 
     <div style="border-radius: 30px; margin-bottom: 5px;" class="boxoffice">
       <br><br><br><br><h2>왓챠 순위</h2>
-      <div class="swiper-container">
+      <div class="swiper-container third">
         <div class="swiper-button-prev"></div>
         <ol class="swiper-wrapper">
           <li v-for="(movie, index) in watchaData" :key="movie.title" class="swiper-slide">
@@ -105,7 +77,6 @@
         <div class="swiper-button-next"></div>
         <br><br>
       </div>
->>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
     </div>
   </div>
 </template>
@@ -115,14 +86,12 @@ import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import { mapGetters } from 'vuex';
 import axios from 'axios';
+import Vue from 'vue';
 
 Swiper.use([Navigation, Pagination]);
-<<<<<<< HEAD
-=======
 
 import netflixData from '@/assets/movie_ranking/netflix_list.json'
 import watchaData from '@/assets/movie_ranking/watcha_list.json'
->>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
 
 export default {
   name: 'BoxofficeDaily',
@@ -137,15 +106,11 @@ export default {
       movieNm: '가디언즈 오브 갤럭시',
       title: '',
       API_KEY: 'D2VY8455A80060QVE094',
-<<<<<<< HEAD
-      updatedurl: 'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&ServiceKey=D2VY8455A80060QVE094'
-=======
       updatedurl: 'https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_xml2.jsp?collection=kmdb_new2&title=분노의 질주: 라이드&ServiceKey=D2VY8455A80060QVE094',
       // OTT 데이터
       netflixData: netflixData,
       watchaData: watchaData,
 
->>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
   }},
   methods: {
     updateUrl(movieNm, rank) {
@@ -194,10 +159,7 @@ export default {
             if (vodsUrls[index].querySelector('prodYear').textContent.trim() === '2023') {
               const vodUrl = vodsUrls[index].querySelector('vods').querySelector('vod').querySelector('vodUrl');
               const vodsUrl = vodUrl.textContent.trim();
-<<<<<<< HEAD
-=======
               
->>>>>>> b250a6af5e116efc3aee1a5329cd8311f05fb05c
               this.vodsUrl = vodsUrl
               break;
             }
@@ -229,7 +191,7 @@ export default {
     },
   },
   mounted() {
-    new Swiper('.swiper-container', {
+    var swiper = new Swiper('.first', {
       direction: 'horizontal',
       slidesPerView: 5,
       spaceBetween: 15,
@@ -243,11 +205,57 @@ export default {
       },
       navigation: {
         nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        prevEl: '.swiper-button-prev'
       },
+      observer: true,
+      observeParents: true,
+    });
+
+    var swiper1 = new Swiper('.second', {
+      direction: 'horizontal',
+      slidesPerView: 5,
+      spaceBetween: 15,
+      debugger: true,
+      mousewheel: false,
+      loop: false,
+      centeredSlides: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      observer: true,
+      observeParents: true,
+    });
+
+    var swiper2 = new Swiper('.third', {
+      direction: 'horizontal',
+      slidesPerView: 5,
+      spaceBetween: 15,
+      debugger: true,
+      mousewheel: false,
+      loop: false,
+      centeredSlides: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      observer: true,
+      observeParents: true,
     });
     this.fetchTrailerUrl();
-  },
+    Vue.use(swiper)
+    Vue.use(swiper1)
+    Vue.use(swiper2)
+}
+
 };
 </script>
 
@@ -359,9 +367,17 @@ export default {
     font-size: 16px;
     line-height: 21px;
   }
-  .swiper-button-next,
-  .swiper-button-prev {
-    position: absolute;
-    top: 70%;
-  }
+  .swiper-button-next .swiper-button-prev{
+    position: relative;
+    top: var(--swiper-navigation-top-offset, 50%);
+    width: calc(var(--swiper-navigation-size) / 44 * 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  }  
 </style>

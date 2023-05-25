@@ -1,23 +1,25 @@
 <template>
   <div class="container mt-3">
-    <div class="">
-      <div class="" style="text-align:left; font-family: 'GmarketSansMedium';">
-        <router-link :to="{ name: 'profile', params: { username: comment.user.username } }">
+    <div class="d-container" v-for="comment in comments" :comment="comment" :key="comment.id">
+      <!-- {{ comment }} -->
+      <div class="d-flex">
+        <router-link :to="{ name: 'profile', params: { 'username': comment.user.username } }">
           {{ comment.user.username }}
         </router-link>: 
-        <div style="font-family: 'GmarketSansMedium';" v-if="!isEditing">{{ payload.content }}</div>
+        <div style="font-family: 'GmarketSansMedium';" v-if="!isEditing">{{ comment.content }}</div>
 
-        <span>
+        <div style="margin-left: auto;">
           <div v-if="isEditing">
-            <input type="text" v-model="payload.content">
-            <button @click="onUpdate">Update</button> |
+            <input type="text" v-model="comment.content">
+            <button @click="onUpdate(comment)">Update</button> |
             <button @click="switchIsEditing">Cancel</button>
           </div>
+
           <div style="float:right;" v-if="currentUser.username === comment.user.username && !isEditing">
-            <button class=" mt-3 btn btn-sm btn-outline-secondary waves-effect " @click="deleteComment(payload)">삭제</button>
+            <button class=" mt-3 btn btn-sm btn-outline-secondary waves-effect " @click="onDelete(comment)">삭제</button>
             <button class="mt-3 mx-2 btn btn-sm btn-outline-secondary waves-effect " @click="switchIsEditing">수정</button>
           </div>
-        </span>
+        </div>
         <br>
       </div>
     </div>
@@ -29,27 +31,30 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'CommentList',
-  props: { comment: Object },
+  props: { comments: Array },
   data() {
     return {
       isEditing: false,
-      payload: {
-        articlePk: this.comment.article,
-        commentPk: this.comment.pk,
-        content: this.comment.content
-      },
     }
   },
   computed: {
-    ...mapGetters(['currentUser']),
+    ...mapGetters('accounts/', ['currentUser']),
   },
   methods: {
-    ...mapActions(['updateComment', 'deleteComment']),
+    ...mapActions('articles/', ['updateComment', 'deleteComment']),
     switchIsEditing() {
       this.isEditing = !this.isEditing
     },
-    onUpdate() {
-      this.updateComment(this.payload)
+    onDelete(comment) {
+      const articlePk = +(comment.article)
+      const commentPk = +(comment.pk)
+      this.deleteComment({articlePk, commentPk})
+    },
+    onUpdate(comment) {
+      const articlePk = +(comment.article)
+      const commentPk = +(comment.pk)
+      const content = comment.content
+      this.updateComment({articlePk, commentPk, content})
       this.isEditing = false
     }
   },
