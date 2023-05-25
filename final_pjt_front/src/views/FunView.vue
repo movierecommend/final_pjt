@@ -32,14 +32,6 @@
 
     <div>
       
-<<<<<<< HEAD
-      <button @click="findYourMBTI()">확인</button>
-      <div>
-        <div v-for="mbti in mbti_jsonData" :key="mbti.id">
-          <div v-if="mbti.fields.MBTI === yourMBTI">
-            {{ mbti.fields.character }}
-            <img class="result" :src="mbti.fields.image" alt="MBTI 이미지">
-=======
       <button v-if="!showPopup" @click="findYourMBTI()">확인</button>
         <div> 
           <div v-if="showPopup" class="popup-overlay" @click="closePopup">
@@ -51,7 +43,6 @@
                 </div>
               </div>
             </div>
->>>>>>> 9c8e4967a4cd6cf2e11059f7facac9c2cc9c80c4
           </div>
         </div> 
     </div>
