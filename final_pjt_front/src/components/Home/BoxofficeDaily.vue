@@ -1,9 +1,6 @@
 <template>
   <div>
     <!-- <img :src="this.realposterurl" width="100%" height="150px"> -->
-
-    <h2>실시간 박스오피스 {{this.rank}}위!</h2>
-    <h2>"{{ this.movieNm }}"의 예고편입니다.</h2>
     <div style="background-color: black;">
       <iframe :src="this.realurl" width="900px" height="600px">
           <p>지원하지 않는 브라우저입니다.</p>

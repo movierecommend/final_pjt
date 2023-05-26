@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- <div v-if="!showNextContent">
+    <div v-if="!showNextContent">
       <video ref="videoPlayer" src="/Recommendation.mp4" controls autoplay @ended="playbackEnded"></video>
-    </div> -->
+    </div>
     <div>
       <div class="d-container">
         <div v-if="!isAnswered" class="question-container">

@@ -1,6 +1,7 @@
 <template>
   <div id="app" style="background-color: #ffffff; width: 100%; height: 100vh;">
     <div>
+      <div class="nav-container">
       <div class="top">
         <div v-if="!isLoggedIn" id="wrapMini">
           <button><router-link  to='/login'>Login</router-link></button>
@@ -14,20 +15,22 @@
     
       <nav class="d-flex" style="margin-bottom: 30px; justify-content: center; align-items: center;">
         <div style="padding-right: 30px;">
-          <router-link :to="{ name: 'HomeView' }"><h3>Home</h3></router-link>
+          <router-link :to="{ name: 'HomeView' }">
+            <img src="/logo.png" alt="Logo" style="width: 200px; height: 50px;">
+          </router-link>
         </div>
         <div style="padding-right: 30px;">
-          <router-link :to="{ name: 'recommend' }"><h3>Recommendations</h3></router-link>
+          <router-link :to="{ name: 'recommend' }"><h4>Recommendations</h4></router-link>
         </div>
         <div style="padding-right: 30px;">
-          <router-link :to="{ name: 'fun' }"><h3>Fun</h3></router-link>
+          <router-link :to="{ name: 'fun' }"><h4>Fun</h4></router-link>
         </div>
         <div style="padding-right: 30px;">
-          <router-link :to="{ name: 'articles' }"><h3>Community</h3></router-link>
+          <router-link :to="{ name: 'articles' }"><h4>Community</h4></router-link>
         </div>
       </nav>
     </div>
-    
+    </div>
     <router-view/>
   </div>
   
@@ -76,7 +79,7 @@ export default {
   font-family: 'dh';
   src:url('../public/fonts/BMDOHYEON_ttf.ttf')
 }
-h3 {
+h4 {
   font-family: 'dh';
 }
 
@@ -115,7 +118,7 @@ button {
   display: inline-block;
   width: 50px;
   height: 22px;
-  border: 1px solid #E4E4E4;
+  /* border: 1px solid #E4E4E4; */
   font-size: 12px;
   line-height: 24px;
   color: #666;
@@ -130,7 +133,9 @@ button {
   padding-top: 17px;
   margin: 0 auto;  
 }
-
+.nav-container {
+  background-color: #e0c8d1;
+}
 nav {
   width: 1100px;
   height: 42px;

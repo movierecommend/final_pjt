@@ -1,15 +1,17 @@
 <template>
   <div class="container">
     <form @submit.prevent="onSubmit">
-      <div>
+      <div style="width: 90vh;" >
         <label style="float: left; font-size:20px;" class="form-label" for="title">제목</label>
         <input class="form-control" type="text" id="title" v-model="newArticle.title">
       </div>
       <div class="mt-3">
         <label style="float: left; font-size:20px;" class="form-label" for="content">내용 </label>
-        <textarea class="form-control" type="text" id="content" v-model="newArticle.content"></textarea>
+        <textarea class="form-control" style="height: 400px;" type="text" id="content" v-model="newArticle.content"></textarea>
       </div>
+      <div>
       <button style="float: right" class="mt-3 btn btn-outline-secondary waves-effect mb-4">글쓰기</button>
+      </div>
     </form>
 
   </div>

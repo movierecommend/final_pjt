@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3">
+  <div class="mt-3" style="width: 80%;">
     <div class="d-container" v-for="comment in comments" :comment="comment" :key="comment.id">
       <!-- {{ comment }} -->
       <div class="d-flex">
@@ -12,13 +12,15 @@
       <div class="d-container d-flex" style="width: 90%; padding-bottom: 5px;" v-if="isEditing">
         <input type="text" class="form-control" style="width: 80%; height: 40px;"  v-model="comment.content">
         <div style="margin-left: auto;" >
-        <button class=" mt-3 btn btn-sm btn-outline-secondary waves-effect" @click="onUpdate(comment)">Update</button> |
-        <button class="mt-3 mx-2 btn btn-sm btn-outline-secondary waves-effect" @click="switchIsEditing">Cancel</button>
+          <button class="mt-3 btn btn-sm btn-outline-secondary waves-effect" @click="onUpdate(comment)">Update</button> |
+          <button class="mt-3 mx-2 btn btn-sm btn-outline-secondary waves-effect" @click="switchIsEditing">Cancel</button>
         </div>
       </div>
-      <div style="margin-left: auto;" v-if="currentUser.username === comment.user.username && !isEditing">
-        <button class=" mt-3 btn btn-sm btn-outline-secondary waves-effect " @click="onDelete(comment)">삭제</button>
-        <button class="mt-3 mx-2 btn btn-sm btn-outline-secondary waves-effect " @click="switchIsEditing">수정</button>
+      <div style="margin-top: 30px; position: relative;" v-if="currentUser.username === comment.user.username && !isEditing">
+        <div style="margin-right: 10px;">
+        <button class=" mt-3 btn btn-sm btn-outline-secondary waves-effect " @click="onDelete(comment)">삭제</button></div>
+        <div style="margin-left: 50px;">
+        <button class="mt-3 mx-2 btn btn-sm btn-outline-secondary waves-effect " @click="switchIsEditing">수정</button></div>
       </div>
       <br>
       </div>

@@ -1,9 +1,8 @@
 <template>
   <div class="d-container">
     <h1>Article Page</h1>
-
     <router-link :to="{ name: 'create' }" v-if="isLoggedIn">[CREATE]</router-link>
-    <ul>
+    <ul style="width: 100%;">
       <li v-for="article in articles" :key="article.pk">
         <!-- User -->
         <router-link :to="{ name: 'profile', params: { username: article.user.username} }">
